@@ -1,47 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=2 format=3 uid="uid://dd25m6it6auq0"]
 
-[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="1_3hfxs"]
-
-[sub_resource type="Animation" id="Animation_at0ot"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [100.0]
-}
-
-[sub_resource type="Animation" id="Animation_4jwax"]
-resource_name = "rotate"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 100.0, 100.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_atiuy"]
-_data = {
-"RESET": SubResource("Animation_at0ot"),
-"rotate": SubResource("Animation_4jwax")
-}
-
-[sub_resource type="Theme" id="Theme_cpg4t"]
-Label/font_sizes/font_size = 24
+[ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_65hv6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -62,80 +21,14 @@ offset_top = -128.0
 offset_right = 128.0
 grow_vertical = 0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="AbilityButton1" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
-value = 100.0
-fill_mode = 4
-texture_under = ExtResource("1_3hfxs")
-texture_progress = ExtResource("1_3hfxs")
-tint_under = Color(0.568627, 0.568627, 0.568627, 1)
+key = &"hotkey_1"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/TextureProgressBar"]
-autoplay = "rotate"
-libraries = {
-"": SubResource("AnimationLibrary_atiuy")
-}
-
-[node name="Label" type="Label" parent="HBoxContainer/TextureProgressBar"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 26.0
-grow_horizontal = 0
-theme = SubResource("Theme_cpg4t")
-text = "1"
-horizontal_alignment = 1
-
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="AbilityButton2" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
-value = 100.0
-fill_mode = 4
-texture_under = ExtResource("1_3hfxs")
-texture_progress = ExtResource("1_3hfxs")
-tint_under = Color(0.568627, 0.568627, 0.568627, 1)
+key = &"hotkey_2"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/TextureProgressBar2"]
-autoplay = "rotate"
-libraries = {
-"": SubResource("AnimationLibrary_atiuy")
-}
-
-[node name="Label" type="Label" parent="HBoxContainer/TextureProgressBar2"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 26.0
-grow_horizontal = 0
-theme = SubResource("Theme_cpg4t")
-text = "2"
-horizontal_alignment = 1
-
-[node name="TextureProgressBar3" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="AbilityButton3" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
-value = 100.0
-fill_mode = 4
-texture_under = ExtResource("1_3hfxs")
-texture_progress = ExtResource("1_3hfxs")
-tint_under = Color(0.568627, 0.568627, 0.568627, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/TextureProgressBar3"]
-autoplay = "rotate"
-libraries = {
-"": SubResource("AnimationLibrary_atiuy")
-}
-
-[node name="Label" type="Label" parent="HBoxContainer/TextureProgressBar3"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 26.0
-grow_horizontal = 0
-theme = SubResource("Theme_cpg4t")
-text = "3"
-horizontal_alignment = 1
+key = &"hotkey_3"
