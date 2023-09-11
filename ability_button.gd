@@ -1,7 +1,6 @@
 extends TextureProgressBar
 
 @export var key: StringName
-@export var label: String
 @export var cooldown_time: float = 1.0
 @export var image: CompressedTexture2D
 
@@ -9,13 +8,13 @@ var spinning := false
 var clicked := false
 
 func _ready():
-	$Label.text = label
+	$Label.text = key
 	texture_under = image
 	texture_progress = image
 
 func _physics_process(_delta):	
 	if image:
-		if not spinning and (Input.is_action_just_pressed(key) or clicked):
+		if not spinning and (Input.is_action_just_pressed("hotkey_" + key) or clicked):
 			spinning = true
 			print("pressed ", self.name)
 			

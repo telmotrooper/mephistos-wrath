@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://dljd72ox6wihm"]
+
+[ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_agnx2"]
+[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="2_1qnnx"]
+[ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://no-ability.svg" id="3_c8t1w"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 2
+
+[node name="AbilityButton1" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"1"
+cooldown_time = 3.0
+image = ExtResource("2_1qnnx")
+
+[node name="AbilityButton2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"2"
+cooldown_time = 2.0
+image = ExtResource("2_1qnnx")
+
+[node name="AbilityButton3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"3"
+image = ExtResource("2_1qnnx")
+
+[node name="AbilityButton4" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"4"
+image = ExtResource("2_1qnnx")
+
+[node name="AbilityButton5" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"5"
+image = ExtResource("2_1qnnx")
+
+[node name="AbilityButton6" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"6"
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton7" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"7"
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton8" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"8"
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton9" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"9"
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton0" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+key = &"0"
+image = ExtResource("3_c8t1w")
