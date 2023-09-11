@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=4 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_65hv6"]
+[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="2_vpf3e"]
+[ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://no-ability.svg" id="3_awv0m"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -26,14 +28,47 @@ layout_mode = 2
 key = &"hotkey_1"
 label = "1"
 cooldown_time = 3.0
+image = ExtResource("2_vpf3e")
 
 [node name="AbilityButton2" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_2"
 label = "2"
 cooldown_time = 2.0
+image = ExtResource("2_vpf3e")
 
 [node name="AbilityButton3" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_3"
 label = "3"
+image = ExtResource("2_vpf3e")
+
+[node name="AbilityButton4" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_4"
+label = "4"
+image = ExtResource("3_awv0m")
+
+[node name="AbilityButton5" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_5"
+label = "5"
+image = ExtResource("3_awv0m")
+
+[node name="AbilityButton6" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_6"
+label = "6"
+image = ExtResource("3_awv0m")
+
+[node name="AbilityButton7" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_7"
+label = "7"
+image = ExtResource("3_awv0m")
+
+[node name="AbilityButton8" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_8"
+label = "8"
+image = ExtResource("3_awv0m")
