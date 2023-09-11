@@ -24,11 +24,14 @@ grow_vertical = 0
 [node name="AbilityButton1" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_1"
+label = "1"
 
 [node name="AbilityButton2" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_2"
+label = "2"
 
 [node name="AbilityButton3" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_3"
+label = "3"
