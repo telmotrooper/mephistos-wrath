@@ -5,12 +5,13 @@ extends TextureProgressBar
 @export var cooldown_time: float = 1.0
 
 var spinning := false
+var clicked := false
 
 func _ready():
 	$Label.text = label
 
-func _physics_process(_delta):
-	if Input.is_action_just_pressed(key) and not spinning:
+func _physics_process(_delta):	
+	if not spinning and (Input.is_action_just_pressed(key) or clicked):
 		spinning = true
 		print("pressed ", self.name)
 		
@@ -18,3 +19,8 @@ func _physics_process(_delta):
 		var tween = create_tween()
 		tween.tween_property(self, "value", 100, cooldown_time)
 		tween.tween_callback(func(): spinning = false)
+	clicked = false
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		clicked = true
