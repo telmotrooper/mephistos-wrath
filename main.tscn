@@ -1,10 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=9 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_65hv6"]
 [ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="2_vpf3e"]
 [ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://no-ability.svg" id="3_awv0m"]
 
-[node name="Main" type="Control"]
+[sub_resource type="Gradient" id="Gradient_o4fjt"]
+colors = PackedColorArray(1, 1, 1, 1, 0.192364, 0.422228, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bum0l"]
+gradient = SubResource("Gradient_o4fjt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dbo6q"]
+panorama = SubResource("GradientTexture2D_bum0l")
+
+[sub_resource type="Sky" id="Sky_l1ob6"]
+sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
+
+[sub_resource type="Environment" id="Environment_3lqe7"]
+background_mode = 2
+sky = SubResource("Sky_l1ob6")
+
+[node name="Main" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +34,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -23,52 +43,70 @@ offset_top = -128.0
 offset_right = 128.0
 grow_vertical = 0
 
-[node name="AbilityButton1" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton1" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_1"
 label = "1"
 cooldown_time = 3.0
 image = ExtResource("2_vpf3e")
 
-[node name="AbilityButton2" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton2" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_2"
 label = "2"
 cooldown_time = 2.0
 image = ExtResource("2_vpf3e")
 
-[node name="AbilityButton3" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton3" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_3"
 label = "3"
 image = ExtResource("2_vpf3e")
 
-[node name="AbilityButton4" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton4" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_4"
 label = "4"
 image = ExtResource("3_awv0m")
 
-[node name="AbilityButton5" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton5" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_5"
 label = "5"
 image = ExtResource("3_awv0m")
 
-[node name="AbilityButton6" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton6" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_6"
 label = "6"
 image = ExtResource("3_awv0m")
 
-[node name="AbilityButton7" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton7" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_7"
 label = "7"
 image = ExtResource("3_awv0m")
 
-[node name="AbilityButton8" parent="HBoxContainer" instance=ExtResource("1_65hv6")]
+[node name="AbilityButton8" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
 layout_mode = 2
 key = &"hotkey_8"
 label = "8"
 image = ExtResource("3_awv0m")
+
+[node name="AbilityButton9" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_9"
+label = "9"
+image = ExtResource("3_awv0m")
+
+[node name="AbilityButton0" parent="UI/HBoxContainer" instance=ExtResource("1_65hv6")]
+layout_mode = 2
+key = &"hotkey_0"
+label = "0"
+image = ExtResource("3_awv0m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3lqe7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
