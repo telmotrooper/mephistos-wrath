@@ -12,9 +12,11 @@ func _ready():
 	texture_under = image
 	texture_progress = image
 
-func _physics_process(_delta):	
+func _physics_process(_delta):
+	var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
+	
 	if image:
-		if not spinning and (Input.is_action_just_pressed("hotkey_" + key) or clicked):
+		if not spinning and (pressed or clicked):
 			spinning = true
 			print("pressed ", self.name)
 			

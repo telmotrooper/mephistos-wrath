@@ -30,7 +30,6 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-alignment = 2
 
 [node name="AbilityButton1" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
@@ -82,4 +81,20 @@ image = ExtResource("3_c8t1w")
 [node name="AbilityButton0" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"0"
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton10" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton11" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton12" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
+image = ExtResource("3_c8t1w")
+
+[node name="AbilityButton13" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
+layout_mode = 2
 image = ExtResource("3_c8t1w")
