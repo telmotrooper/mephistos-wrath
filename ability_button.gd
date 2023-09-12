@@ -41,8 +41,8 @@ func _on_ability_triggered(ability_name: StringName) -> void:
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	return self
 
-func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
-	return true
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return data.ability.name != ""
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	self.ability = data.ability
