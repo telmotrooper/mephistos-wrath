@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://8xr1er6ruqpx"]
+
+[ext_resource type="Script" path="res://characters/character.gd" id="1_74qr3"]
+
+[resource]
+script = ExtResource("1_74qr3")
+name = &"George Erickson"
+hp = 100
+max_hp = 100
+mp = 100
+max_mp = 100

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://b7j3g28hhgggb"]
+
+[ext_resource type="Script" path="res://characters/character.gd" id="1_2papk"]
+
+[resource]
+script = ExtResource("1_2papk")
+name = &"Michael Tenorio"
+hp = 100
+max_hp = 100
+mp = 100
+max_mp = 100

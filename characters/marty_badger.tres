@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://dh0h86uwqa4d8"]
+
+[ext_resource type="Script" path="res://characters/character.gd" id="1_o7gli"]
+
+[resource]
+script = ExtResource("1_o7gli")
+name = &"Marty Badger"
+hp = 100
+max_hp = 100
+mp = 100
+max_mp = 100

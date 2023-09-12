@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=11 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_agnx2"]
 [ext_resource type="Resource" uid="uid://b6e6v8ccfjr2v" path="res://abilities/heal.tres" id="2_tiy6j"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
 [ext_resource type="Script" path="res://lock_button.gd" id="4_jpk3e"]
 [ext_resource type="PackedScene" uid="uid://bai5fwngw35v5" path="res://character_portrait.tscn" id="6_quqll"]
+[ext_resource type="Resource" uid="uid://8xr1er6ruqpx" path="res://characters/george_erickson.tres" id="7_wg2o1"]
+[ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="8_g7gv6"]
+[ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="9_ggjba"]
+[ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="10_hb6mf"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -110,21 +114,25 @@ size_flags_vertical = 0
 
 [node name="CharacterPortrait" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+character = ExtResource("7_wg2o1")
 health_points = 50.0
 mana_points = 50.0
 
 [node name="CharacterPortrait2" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+character = ExtResource("8_g7gv6")
 health_points = 50.0
 mana_points = 50.0
 
 [node name="CharacterPortrait3" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+character = ExtResource("9_ggjba")
 health_points = 50.0
 mana_points = 50.0
 
 [node name="CharacterPortrait4" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+character = ExtResource("10_hb6mf")
 health_points = 50.0
 mana_points = 50.0
 

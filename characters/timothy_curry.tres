@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://fjov23yxdht3"]
+
+[ext_resource type="Script" path="res://characters/character.gd" id="1_1cfat"]
+
+[resource]
+script = ExtResource("1_1cfat")
+name = &"Timothy Curry"
+hp = 100
+max_hp = 100
+mp = 100
+max_mp = 100
