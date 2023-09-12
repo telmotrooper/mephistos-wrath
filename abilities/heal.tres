@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://b6e6v8ccfjr2v"]
+
+[ext_resource type="Script" path="res://abilities/ability.gd" id="1_bhuk7"]
+[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="1_cnjvo"]
+
+[resource]
+script = ExtResource("1_bhuk7")
+name = &"Heal"
+description = &"Heals a player."
+image = ExtResource("1_cnjvo")
+cooldown_time = 3.0

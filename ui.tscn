@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_agnx2"]
-[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="2_1qnnx"]
-[ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://no-ability.svg" id="3_c8t1w"]
+[ext_resource type="Resource" uid="uid://b6e6v8ccfjr2v" path="res://abilities/heal.tres" id="2_tiy6j"]
+[ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="3_5n8pi"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -34,67 +34,54 @@ size_flags_vertical = 8
 [node name="AbilityButton1" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"1"
-cooldown_time = 3.0
-image = ExtResource("2_1qnnx")
+ability = ExtResource("2_tiy6j")
 
 [node name="AbilityButton2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"2"
-cooldown_time = 2.0
-image = ExtResource("2_1qnnx")
+ability = ExtResource("3_5n8pi")
 
 [node name="AbilityButton3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"3"
-image = ExtResource("2_1qnnx")
+ability = ExtResource("3_5n8pi")
 
 [node name="AbilityButton4" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"4"
-image = ExtResource("2_1qnnx")
 
 [node name="AbilityButton5" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"5"
-image = ExtResource("2_1qnnx")
 
 [node name="AbilityButton6" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"6"
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton7" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"7"
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton8" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"8"
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton9" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"9"
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton0" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
 key = &"0"
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton10" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton11" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton12" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-image = ExtResource("3_c8t1w")
 
 [node name="AbilityButton13" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-image = ExtResource("3_c8t1w")

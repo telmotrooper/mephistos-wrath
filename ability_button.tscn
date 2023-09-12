@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhundnaj0qca3"]
+[gd_scene load_steps=5 format=3 uid="uid://dhundnaj0qca3"]
 
 [ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="1_55vxe"]
 [ext_resource type="Script" path="res://ability_button.gd" id="2_f5roc"]
+[ext_resource type="Resource" uid="uid://d1mk6gisn3b5t" path="res://abilities/empty.tres" id="3_eobk6"]
 
 [sub_resource type="Theme" id="Theme_cpg4t"]
 Label/font_sizes/font_size = 24
 
 [node name="AbilityButton" type="TextureProgressBar"]
-tooltip_text = "Ability Name
-Ability description."
 value = 100.0
 fill_mode = 4
 texture_under = ExtResource("1_55vxe")
 texture_progress = ExtResource("1_55vxe")
 tint_under = Color(0.568627, 0.568627, 0.568627, 1)
 script = ExtResource("2_f5roc")
+ability = ExtResource("3_eobk6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

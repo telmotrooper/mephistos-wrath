@@ -1,28 +1,29 @@
 extends TextureProgressBar
 
 @export var key: StringName
-@export var cooldown_time: float = 1.0
-@export var image: CompressedTexture2D
+@export var ability: Ability
 
 var spinning := false
 var clicked := false
 
 func _ready():
 	$Label.text = key
-	texture_under = image
-	texture_progress = image
+	texture_under = ability.image
+	texture_progress = ability.image
+	if ability.name or ability.description:
+		tooltip_text = ability.name + "\n" + ability.description
 
 func _physics_process(_delta):
 	var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
 	
-	if image:
+	if ability.image:
 		if not spinning and (pressed or clicked):
 			spinning = true
 			print("pressed ", self.name)
 			
 			value = 0
 			var tween = create_tween()
-			tween.tween_property(self, "value", 100, cooldown_time)
+			tween.tween_property(self, "value", 100, ability.cooldown_time)
 			tween.tween_callback(func(): spinning = false)
 		clicked = false
 
