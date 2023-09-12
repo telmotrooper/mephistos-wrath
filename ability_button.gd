@@ -41,7 +41,7 @@ func _on_ability_triggered(ability_name: StringName) -> void:
 		spin()
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
-	if GameState.ability_bar_locked:
+	if GameState.ability_bar_locked or ability.name == "":
 		return null
 	var drag_preview = TextureRect.new()
 	drag_preview.texture = ability.image
