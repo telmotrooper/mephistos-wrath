@@ -43,15 +43,19 @@ func _on_ability_triggered(ability_name: StringName) -> void:
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if GameState.ability_bar_locked:
 		return null
+	var drag_preview = TextureRect.new()
+	drag_preview.texture = ability.image
+	set_drag_preview(drag_preview)
 	return self
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data.ability.name != ""
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	self.ability = data.ability
-	_ready()
-	if data.value != 0:
-		spin(data.value)
-	data.ability = load("res://abilities/empty.tres")
-	data._ready()
+	if self != data:
+		self.ability = data.ability
+		_ready()
+		if data.value != 0:
+			spin(data.value)
+		data.ability = load("res://abilities/empty.tres")
+		data._ready()

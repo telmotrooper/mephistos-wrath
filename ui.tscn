@@ -78,15 +78,19 @@ key = &"0"
 
 [node name="AbilityButton10" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
+key = &""
 
 [node name="AbilityButton11" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
+key = &""
 
 [node name="AbilityButton12" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
+key = &""
 
 [node name="AbilityButton13" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
+key = &""
 
 [node name="LockButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
