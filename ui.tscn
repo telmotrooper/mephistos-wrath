@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="3_5n8pi"]
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
 [ext_resource type="Script" path="res://lock_button.gd" id="4_jpk3e"]
-[ext_resource type="Texture2D" uid="uid://dnbpds45dj28k" path="res://icons/player-circle.svg" id="6_l571r"]
+[ext_resource type="PackedScene" uid="uid://bai5fwngw35v5" path="res://player_portrait.tscn" id="6_quqll"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -108,25 +108,17 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerPortrait" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
-texture_under = ExtResource("6_l571r")
-texture_progress = ExtResource("6_l571r")
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerPortrait2" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
-texture_under = ExtResource("6_l571r")
-texture_progress = ExtResource("6_l571r")
 
-[node name="TextureProgressBar3" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerPortrait3" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
-texture_under = ExtResource("6_l571r")
-texture_progress = ExtResource("6_l571r")
 
-[node name="TextureProgressBar4" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="PlayerPortrait4" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
-texture_under = ExtResource("6_l571r")
-texture_progress = ExtResource("6_l571r")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton" to="MarginContainer/HBoxContainer/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton/LockButton" to="MarginContainer/HBoxContainer/LockButton/LockButton" method="_on_pressed"]

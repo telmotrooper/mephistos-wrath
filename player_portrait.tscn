@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bai5fwngw35v5"]
+
+[ext_resource type="Texture2D" uid="uid://dnbpds45dj28k" path="res://icons/player-circle.svg" id="1_lsacc"]
+[ext_resource type="Texture2D" uid="uid://bal6t7tkrqxml" path="res://icons/portrait-mask.svg" id="2_4xg4o"]
+[ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="3_o4gxp"]
+
+[node name="PlayerPortrait" type="TextureProgressBar"]
+texture_under = ExtResource("1_lsacc")
+texture_progress = ExtResource("1_lsacc")
+
+[node name="Mask" type="TextureRect" parent="."]
+show_behind_parent = true
+clip_children = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -58.5
+offset_right = 58.5
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4xg4o")
+
+[node name="Portrait" type="TextureRect" parent="Mask"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o4gxp")
