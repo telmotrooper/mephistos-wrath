@@ -26,13 +26,10 @@ func spin(initial_value = 0.0) -> void:
 	print("pressed ", self.name)
 	
 	value = initial_value
-	var relative_cooldown_time = ability.cooldown_time
-	
-	if initial_value != 0.0:
-		relative_cooldown_time = ability.cooldown_time * (100 - initial_value) / 100
+	var cooldown_time = ability.cooldown_time * (100 - initial_value) / 100
 	
 	var tween = create_tween()
-	tween.tween_property(self, "value", 100, relative_cooldown_time)
+	tween.tween_property(self, "value", 100, cooldown_time)
 	tween.tween_callback(func(): spinning = false)
 
 func _gui_input(event: InputEvent) -> void:
