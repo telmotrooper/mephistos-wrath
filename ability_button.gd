@@ -6,14 +6,14 @@ extends TextureProgressBar
 var spinning := false
 var clicked := false
 
-func _ready():
+func _ready() -> void:
 	$Label.text = key
 	texture_under = ability.image
 	texture_progress = ability.image
 	if ability.name or ability.description:
 		tooltip_text = ability.name + "\n" + ability.description
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
 	
 	if ability.image:
@@ -27,6 +27,6 @@ func _physics_process(_delta):
 			tween.tween_callback(func(): spinning = false)
 		clicked = false
 
-func _gui_input(event):
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		clicked = true
