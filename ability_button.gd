@@ -21,13 +21,18 @@ func _physics_process(_delta: float) -> void:
 		spin()
 	clicked = false
 
-func spin() -> void:
+func spin(initial_value = 0.0) -> void:
 	spinning = true
 	print("pressed ", self.name)
 	
-	value = 0
+	value = initial_value
+	var relative_cooldown_time = ability.cooldown_time
+	
+	if initial_value != 0.0:
+		relative_cooldown_time = ability.cooldown_time * (100 - initial_value) / 100
+	
 	var tween = create_tween()
-	tween.tween_property(self, "value", 100, ability.cooldown_time)
+	tween.tween_property(self, "value", 100, relative_cooldown_time)
 	tween.tween_callback(func(): spinning = false)
 
 func _gui_input(event: InputEvent) -> void:
@@ -49,5 +54,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	self.ability = data.ability
 	_ready()
+	if data.value != 0:
+		spin(data.value)
 	data.ability = load("res://abilities/empty.tres")
 	data._ready()
