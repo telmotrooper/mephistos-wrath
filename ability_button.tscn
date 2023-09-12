@@ -7,7 +7,7 @@
 [sub_resource type="Theme" id="Theme_cpg4t"]
 Label/font_sizes/font_size = 24
 
-[node name="AbilityButton" type="TextureProgressBar"]
+[node name="AbilityButton" type="TextureProgressBar" groups=["ability_buttons"]]
 value = 100.0
 fill_mode = 4
 texture_under = ExtResource("1_55vxe")
