@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	locked = not locked
+	GameState.ability_bar_locked = locked
 	update_icon()
 
 func update_icon() -> void:

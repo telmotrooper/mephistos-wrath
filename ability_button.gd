@@ -39,6 +39,8 @@ func _on_ability_triggered(ability_name: StringName) -> void:
 		spin()
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
+	if GameState.ability_bar_locked:
+		return null
 	return self
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
