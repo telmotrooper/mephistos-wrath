@@ -31,9 +31,21 @@ func spin() -> void:
 	tween.tween_callback(func(): spinning = false)
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		clicked = true
 
 func _on_ability_triggered(ability_name: StringName) -> void:
 	if ability_name == ability.name:
 		spin()
+
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	return self
+
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
+	return true
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	self.ability = data.ability
+	_ready()
+	data.ability = load("res://abilities/empty.tres")
+	data._ready()
