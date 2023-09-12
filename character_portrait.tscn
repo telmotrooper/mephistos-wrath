@@ -5,7 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://ixrrw5j0c1j8" path="res://icons/player-circle-mp.svg" id="2_jr61c"]
 [ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="3_o4gxp"]
 
-[node name="CharacterPortrait" type="TextureProgressBar"]
+[node name="CharacterPortrait" type="Control"]
+custom_minimum_size = Vector2(117, 117)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HP" type="TextureProgressBar" parent="."]
 offset_right = 117.0
 offset_bottom = 117.0
 value = 50.0
