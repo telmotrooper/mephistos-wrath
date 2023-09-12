@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bal6t7tkrqxml" path="res://icons/portrait-mask.svg" id="2_4xg4o"]
 [ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="3_o4gxp"]
 
-[node name="PlayerPortrait" type="TextureProgressBar"]
+[node name="CharacterPortrait" type="TextureProgressBar"]
 texture_under = ExtResource("1_lsacc")
 texture_progress = ExtResource("1_lsacc")
 
