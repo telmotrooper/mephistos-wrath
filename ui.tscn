@@ -110,15 +110,23 @@ size_flags_vertical = 0
 
 [node name="CharacterPortrait" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+health_points = 50.0
+mana_points = 50.0
 
 [node name="CharacterPortrait2" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+health_points = 50.0
+mana_points = 50.0
 
 [node name="CharacterPortrait3" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+health_points = 50.0
+mana_points = 50.0
 
 [node name="CharacterPortrait4" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_quqll")]
 layout_mode = 2
+health_points = 50.0
+mana_points = 50.0
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton" to="MarginContainer/HBoxContainer/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton/LockButton" to="MarginContainer/HBoxContainer/LockButton/LockButton" method="_on_pressed"]
