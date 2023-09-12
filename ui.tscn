@@ -95,4 +95,12 @@ size_flags_vertical = 4
 icon = ExtResource("4_gl0di")
 script = ExtResource("4_jpk3e")
 
+[node name="LockButton" type="Button" parent="MarginContainer/HBoxContainer/LockButton"]
+layout_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("4_gl0di")
+script = ExtResource("4_jpk3e")
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton" to="MarginContainer/HBoxContainer/LockButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton/LockButton" to="MarginContainer/HBoxContainer/LockButton/LockButton" method="_on_pressed"]

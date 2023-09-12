@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://d1mk6gisn3b5t" path="res://abilities/empty.tres" id="3_eobk6"]
 
 [sub_resource type="Theme" id="Theme_cpg4t"]
-Label/font_sizes/font_size = 24
+Label/font_sizes/font_size = 16
 
 [node name="AbilityButton" type="TextureProgressBar" groups=["ability_buttons"]]
 value = 100.0

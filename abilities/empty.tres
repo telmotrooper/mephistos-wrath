@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://d1mk6gisn3b5t"]
 
-[ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://no-ability.svg" id="1_6tltv"]
+[ext_resource type="Texture2D" uid="uid://blrkp7rdm7rkb" path="res://icons/no-ability.svg" id="1_6tltv"]
 [ext_resource type="Script" path="res://abilities/ability.gd" id="1_mtcwi"]
 
 [resource]
