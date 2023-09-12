@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=7 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_agnx2"]
 [ext_resource type="Resource" uid="uid://b6e6v8ccfjr2v" path="res://abilities/heal.tres" id="2_tiy6j"]
 [ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="3_5n8pi"]
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
 [ext_resource type="Script" path="res://lock_button.gd" id="4_jpk3e"]
+[ext_resource type="Texture2D" uid="uid://dnbpds45dj28k" path="res://icons/player-circle.svg" id="6_l571r"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -78,19 +79,15 @@ key = &"0"
 
 [node name="AbilityButton10" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-key = &""
 
 [node name="AbilityButton11" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-key = &""
 
 [node name="AbilityButton12" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-key = &""
 
 [node name="AbilityButton13" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_agnx2")]
 layout_mode = 2
-key = &""
 
 [node name="LockButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -105,6 +102,30 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("4_gl0di")
 script = ExtResource("4_jpk3e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_under = ExtResource("6_l571r")
+texture_progress = ExtResource("6_l571r")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_under = ExtResource("6_l571r")
+texture_progress = ExtResource("6_l571r")
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_under = ExtResource("6_l571r")
+texture_progress = ExtResource("6_l571r")
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_under = ExtResource("6_l571r")
+texture_progress = ExtResource("6_l571r")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton" to="MarginContainer/HBoxContainer/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LockButton/LockButton" to="MarginContainer/HBoxContainer/LockButton/LockButton" method="_on_pressed"]
