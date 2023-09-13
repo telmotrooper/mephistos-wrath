@@ -23,12 +23,12 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="8.3150518"
-     inkscape:cx="62.11627"
-     inkscape:cy="58.388091"
+     inkscape:zoom="5.8796295"
+     inkscape:cx="51.44882"
+     inkscape:cy="48.387403"
      inkscape:window-width="1920"
      inkscape:window-height="1020"
-     inkscape:window-x="0"
+     inkscape:window-x="1920"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
@@ -40,7 +40,7 @@
      id="layer1"
      transform="translate(-31.29229,-78.663949)">
     <circle
-       style="fill:none;stroke:#ffff00;stroke-width:9.65689;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#ffe680;stroke-width:9.65689;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path3"
        cx="82.724564"
        cy="130.09622"

@@ -6,6 +6,10 @@ var border_selected : CompressedTexture2D = load("res://icons/player-circle-bord
 @export var character: Character
 
 func _ready() -> void:
+	if len(GameState.selected_characters) == 0:
+		GameState.selected_characters = [self]
+		_on_portrait_selected()
+	
 	tooltip_text = "%s\nHP: %d/%d\nMP: %d/%d" % [
 		character.name, character.hp, character.max_hp, character.mp, character.max_mp
 	]
