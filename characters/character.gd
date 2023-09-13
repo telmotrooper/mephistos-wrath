@@ -8,3 +8,5 @@ class_name Character
 
 @export var max_mp: int
 @export var mp: int
+
+@export var ability_bar : Array[Ability] = []

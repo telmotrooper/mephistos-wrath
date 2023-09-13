@@ -24,5 +24,33 @@ func _gui_input(event: InputEvent) -> void:
 func _on_portrait_selected() -> void:
 	if GameState.selected_characters[0] == self:
 		$Border.texture = border_selected
+		
+		var lock_button: Node
+		
+		for child in %Abilities.get_children():
+			%Abilities.remove_child(child)
+			if child.name == "LockButton":
+				lock_button = child
+			else:
+				child.queue_free()
+		
+		var hotkeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+		while len(character.ability_bar) < 14:
+			var ability = load("res://abilities/empty.tres")
+			character.ability_bar.append(ability)
+
+		for ability in character.ability_bar:
+			if ability == null:
+				ability = load("res://abilities/empty.tres")
+			
+			var scene = load("res://ability_button.tscn")
+			var ability_button = scene.instantiate()
+			
+			ability_button.key = "" if len(hotkeys) == 0 else hotkeys.pop_front()
+			ability_button.ability = ability
+			%Abilities.add_child(ability_button)
+		%Abilities.add_child(lock_button)
+		
 	else:
 		$Border.texture = border

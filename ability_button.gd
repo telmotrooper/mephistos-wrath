@@ -23,7 +23,6 @@ func _physics_process(_delta: float) -> void:
 
 func spin(initial_value = 0.0) -> void:
 	spinning = true
-	print("pressed ", self.name)
 	
 	value = initial_value
 	var cooldown_time = ability.cooldown_time * (100 - initial_value) / 100
