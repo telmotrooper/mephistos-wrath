@@ -36,7 +36,6 @@ func _on_portrait_selected() -> void:
 		
 		for child in %Abilities.get_children():
 			%Abilities.remove_child(child)
-			print(child.get_parent())
 			if child.name == "LockButton":
 				lock_button = child
 			elif is_instance_valid(GameState.previously_selected_character) and child.parent_name == GameState.previously_selected_character.name:
@@ -52,7 +51,8 @@ func _on_portrait_selected() -> void:
 
 		if len(ability_bar_children) > 0:
 			for child in ability_bar_children:
-				%Abilities.add_child(child)
+				if child.get_parent() == null:
+					%Abilities.add_child(child)
 		else:
 			for ability in character.ability_bar:
 				if ability == null:
