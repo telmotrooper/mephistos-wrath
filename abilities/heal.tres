@@ -8,4 +8,4 @@ script = ExtResource("1_bhuk7")
 name = &"Heal"
 description = &"Heals a player."
 image = ExtResource("1_tf3mb")
-cooldown_time = 3.0
+cooldown_time = 10.0
