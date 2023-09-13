@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_o7gli")
 name = &"Marty Badger"
-hp = 100
-max_hp = 100
-mp = 100
-max_mp = 100
+hp = 150
+max_hp = 200
+mp = 10
+max_mp = 80

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_2papk")
 name = &"Michael Tenorio"
-hp = 100
 max_hp = 100
-mp = 100
-max_mp = 100
+hp = 10
+max_mp = 60
+mp = 0

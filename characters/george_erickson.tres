@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_74qr3")
 name = &"George Erickson"
+max_hp = 120
 hp = 100
-max_hp = 100
-mp = 100
-max_mp = 100
+max_mp = 80
+mp = 80

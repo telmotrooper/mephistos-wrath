@@ -13,7 +13,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-tooltip_text = "Character Namecd"
 script = ExtResource("1_d2t5c")
 character = ExtResource("2_pc7yn")
 

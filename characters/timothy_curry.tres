@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_1cfat")
 name = &"Timothy Curry"
-hp = 100
-max_hp = 100
-mp = 100
-max_mp = 100
+max_hp = 80
+hp = 80
+max_mp = 220
+mp = 180
