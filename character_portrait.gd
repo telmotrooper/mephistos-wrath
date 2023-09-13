@@ -22,7 +22,9 @@ func _gui_input(event: InputEvent) -> void:
 		get_tree().call_group("character_portraits", "_on_portrait_selected")
 
 func _on_portrait_selected() -> void:
-	if GameState.selected_characters[0] == self:
+	if GameState.selected_characters[0] != self:
+		$Border.texture = border
+	else:
 		$Border.texture = border_selected
 		
 		var lock_button: Node
@@ -51,6 +53,3 @@ func _on_portrait_selected() -> void:
 			ability_button.ability = ability
 			%Abilities.add_child(ability_button)
 		%Abilities.add_child(lock_button)
-		
-	else:
-		$Border.texture = border
