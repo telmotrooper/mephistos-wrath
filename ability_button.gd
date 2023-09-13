@@ -15,11 +15,12 @@ func _ready() -> void:
 		tooltip_text = ability.name + "\n" + ability.description
 
 func _physics_process(_delta: float) -> void:
-	var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
-
-	if not spinning and (pressed or clicked):
-		get_tree().call_group("ability_buttons", "_on_ability_triggered", ability.name)
-		spin()
+	if get_parent().visible: # Hidden abilities should not be triggered by hotkeys.
+		var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
+		
+		if not spinning and (pressed or clicked):
+			get_tree().call_group("ability_buttons", "_on_ability_triggered", ability.name, parent_name)
+			spin()
 	clicked = false
 
 func spin(initial_value = 0.0) -> void:
@@ -36,8 +37,8 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		clicked = true
 
-func _on_ability_triggered(ability_name: StringName) -> void:
-	if ability_name == ability.name:
+func _on_ability_triggered(ability_name: StringName, parent: StringName) -> void:
+	if ability_name == ability.name and parent == self.parent_name:
 		spin()
 
 func _get_drag_data(_at_position: Vector2) -> Variant:

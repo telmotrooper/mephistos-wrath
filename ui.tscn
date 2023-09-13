@@ -128,5 +128,10 @@ MP: 100/100"
 character = ExtResource("10_hb6mf")
 hotkey = &"f4"
 
+[node name="HiddenAbilities" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton" to="MarginContainer/Abilities/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton/LockButton" to="MarginContainer/Abilities/LockButton/LockButton" method="_on_pressed"]
