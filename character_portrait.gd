@@ -36,7 +36,7 @@ func _on_portrait_selected() -> void:
 		
 		var hotkeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-		while len(character.ability_bar) < 14:
+		while len(character.ability_bar) < GameState.ability_bar_size:
 			var ability = load("res://abilities/empty.tres")
 			character.ability_bar.append(ability)
 

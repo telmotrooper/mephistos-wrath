@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://dh0h86uwqa4d8"]
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://dh0h86uwqa4d8"]
 
+[ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="1_4qi31"]
 [ext_resource type="Script" path="res://characters/character.gd" id="1_o7gli"]
 
 [resource]
 script = ExtResource("1_o7gli")
 name = &"Marty Badger"
-hp = 150
 max_hp = 200
-mp = 10
+hp = 150
 max_mp = 80
+mp = 10
+ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_4qi31")])
