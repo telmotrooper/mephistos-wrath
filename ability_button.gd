@@ -58,3 +58,12 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			spin(data.value)
 		data.ability = load("res://abilities/empty.tres")
 		data._ready()
+		update_character_abilities()
+
+func update_character_abilities() -> void:
+	var empty_array: Array[Ability] = []
+	GameState.selected_characters[0].character.ability_bar = empty_array
+
+	for child in get_parent().get_children():
+		if child.name != "LockButton":
+			GameState.selected_characters[0].character.ability_bar.append(child.ability)
