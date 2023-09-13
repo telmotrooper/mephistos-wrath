@@ -1,4 +1,5 @@
 extends Control
+class_name CharacterPortrait
 
 var border : CompressedTexture2D = load("res://icons/player-circle-border.svg")
 var border_selected : CompressedTexture2D = load("res://icons/player-circle-border-selected.svg")
@@ -18,13 +19,15 @@ func _ready() -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		GameState.previously_selected_character = GameState.selected_characters[0]
 		GameState.selected_characters = [self]
+		
 		get_tree().call_group("character_portraits", "_on_portrait_selected")
 
 func _on_portrait_selected() -> void:
 	if GameState.selected_characters[0] != self:
 		$Border.texture = border
-	else:
+	elif GameState.previously_selected_character != self:
 		$Border.texture = border_selected
 		
 		var lock_button: Node
