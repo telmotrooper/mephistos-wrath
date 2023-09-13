@@ -102,6 +102,7 @@ layout_mode = 2
 tooltip_text = "George Erickson
 HP: 100/120
 MP: 100/100"
+hotkey = &"f1"
 
 [node name="CharacterPortrait2" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
 layout_mode = 2
@@ -109,6 +110,7 @@ tooltip_text = "Marty Badger
 HP: 100/100
 MP: 100/100"
 character = ExtResource("8_g7gv6")
+hotkey = &"f2"
 
 [node name="CharacterPortrait3" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
 layout_mode = 2
@@ -116,6 +118,7 @@ tooltip_text = "Michael Tenorio
 HP: 100/100
 MP: 100/100"
 character = ExtResource("9_ggjba")
+hotkey = &"f3"
 
 [node name="CharacterPortrait4" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
 layout_mode = 2
@@ -123,6 +126,7 @@ tooltip_text = "Timothy Curry
 HP: 100/100
 MP: 100/100"
 character = ExtResource("10_hb6mf")
+hotkey = &"f4"
 
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton" to="MarginContainer/Abilities/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton/LockButton" to="MarginContainer/Abilities/LockButton/LockButton" method="_on_pressed"]

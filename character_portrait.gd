@@ -7,6 +7,7 @@ var border_selected : CompressedTexture2D = load("res://icons/player-circle-bord
 var ability_bar_children : Array[Node]
 
 @export var character: Character
+@export var hotkey: StringName
 
 func _ready() -> void:
 	if len(GameState.selected_characters) == 0:
@@ -19,12 +20,19 @@ func _ready() -> void:
 	$HP.value = float(character.hp) / character.max_hp * 50
 	$MP.value = float(character.mp) / character.max_mp * 50
 
+func _physics_process(_delta: float) -> void:
+	var pressed = Input.is_action_just_pressed(hotkey) if hotkey else false
+	if pressed:
+		select_portrait()
+
+func select_portrait() -> void:
+	GameState.previously_selected_character = GameState.selected_characters[0]
+	GameState.selected_characters = [self]
+	get_tree().call_group("character_portraits", "_on_portrait_selected")
+
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		GameState.previously_selected_character = GameState.selected_characters[0]
-		GameState.selected_characters = [self]
-		
-		get_tree().call_group("character_portraits", "_on_portrait_selected")
+		select_portrait()
 
 func _on_portrait_selected() -> void:
 	if GameState.selected_characters[0] != self:
