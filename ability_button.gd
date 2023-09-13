@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var pressed = Input.is_action_just_pressed("hotkey_" + key) if key else false
-
+	
 	if not spinning and (pressed or clicked):
 		get_tree().call_group("ability_buttons", "_on_ability_triggered", ability.name)
 		spin()
