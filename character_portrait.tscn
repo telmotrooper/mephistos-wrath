@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bai5fwngw35v5"]
+[gd_scene load_steps=8 format=3 uid="uid://bai5fwngw35v5"]
 
 [ext_resource type="Script" path="res://character_portrait.gd" id="1_d2t5c"]
 [ext_resource type="Texture2D" uid="uid://bb62v05ucunlc" path="res://icons/player-circle-hp.svg" id="1_jomcv"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ixrrw5j0c1j8" path="res://icons/player-circle-mp.svg" id="2_jr61c"]
 [ext_resource type="Resource" uid="uid://8xr1er6ruqpx" path="res://characters/george_erickson.tres" id="2_pc7yn"]
 [ext_resource type="Texture2D" uid="uid://dmdj47fj1vupk" path="res://icon.svg" id="3_o4gxp"]
+[ext_resource type="Texture2D" uid="uid://ql5io5ml2lgl" path="res://icons/player-circle-border.svg" id="7_rmgwk"]
 
-[node name="CharacterPortrait" type="Control"]
+[node name="CharacterPortrait" type="Control" groups=["character_portraits"]]
 custom_minimum_size = Vector2(117, 117)
 layout_mode = 3
 anchors_preset = 0
@@ -15,6 +16,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_d2t5c")
 character = ExtResource("2_pc7yn")
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 117.0
+offset_bottom = 117.0
+texture = ExtResource("7_rmgwk")
 
 [node name="HP" type="TextureProgressBar" parent="."]
 layout_mode = 0

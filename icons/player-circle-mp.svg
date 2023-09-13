@@ -40,19 +40,6 @@
      id="layer1"
      transform="translate(-31.29229,-78.663949)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:9.65689;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path3"
-       sodipodi:type="arc"
-       sodipodi:cx="82.724564"
-       sodipodi:cy="130.09622"
-       sodipodi:rx="46.603828"
-       sodipodi:ry="46.603828"
-       sodipodi:start="4.712389"
-       sodipodi:end="1.5707963"
-       sodipodi:open="true"
-       sodipodi:arc-type="arc"
-       d="M 82.724564,83.492393 A 46.603828,46.603828 0 0 1 129.32839,130.09622 46.603828,46.603828 0 0 1 82.724564,176.70005" />
-    <path
        style="fill:none;stroke:#000080;stroke-width:5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2"
        sodipodi:type="arc"
