@@ -2,6 +2,7 @@ extends TextureProgressBar
 
 @export var key: StringName
 @export var ability: Ability
+@export var parent_name: StringName
 
 var spinning := false
 var clicked := false

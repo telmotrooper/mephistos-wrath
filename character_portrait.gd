@@ -4,6 +4,8 @@ class_name CharacterPortrait
 var border : CompressedTexture2D = load("res://icons/player-circle-border.svg")
 var border_selected : CompressedTexture2D = load("res://icons/player-circle-border-selected.svg")
 
+var ability_bar_children : Array[Node]
+
 @export var character: Character
 
 func _ready() -> void:
@@ -36,6 +38,8 @@ func _on_portrait_selected() -> void:
 			%Abilities.remove_child(child)
 			if child.name == "LockButton":
 				lock_button = child
+			elif is_instance_valid(GameState.previously_selected_character) and child.parent_name == GameState.previously_selected_character.name:
+				GameState.previously_selected_character.ability_bar_children.append(child)
 			else:
 				child.queue_free()
 		
@@ -45,14 +49,19 @@ func _on_portrait_selected() -> void:
 			var ability = load("res://abilities/empty.tres")
 			character.ability_bar.append(ability)
 
-		for ability in character.ability_bar:
-			if ability == null:
-				ability = load("res://abilities/empty.tres")
-			
-			var scene = load("res://ability_button.tscn")
-			var ability_button = scene.instantiate()
-			
-			ability_button.key = "" if len(hotkeys) == 0 else hotkeys.pop_front()
-			ability_button.ability = ability
-			%Abilities.add_child(ability_button)
+		if len(ability_bar_children) > 0:
+			for child in ability_bar_children:
+				if child.get_parent() == null:
+					%Abilities.add_child(child)
+		else:
+			for ability in character.ability_bar:
+				if ability == null:
+					ability = load("res://abilities/empty.tres")
+				
+				var scene = load("res://ability_button.tscn")
+				var ability_button = scene.instantiate()
+				ability_button.parent_name = self.name
+				ability_button.key = "" if len(hotkeys) == 0 else hotkeys.pop_front()
+				ability_button.ability = ability
+				%Abilities.add_child(ability_button)
 		%Abilities.add_child(lock_button)
