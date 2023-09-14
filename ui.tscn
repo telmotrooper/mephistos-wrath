@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=14 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="9_ggjba"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="10_hb6mf"]
 [ext_resource type="Texture2D" uid="uid://1u66aapdt1l7" path="res://icons/font_awesome/graduation-cap.svg" id="10_oefr8"]
+[ext_resource type="Texture2D" uid="uid://cph106f74tf5t" path="res://icons/font_awesome/briefcase.svg" id="10_sw3dl"]
 [ext_resource type="Texture2D" uid="uid://b0w2gqiom18bs" path="res://icons/font_awesome/scroll.svg" id="11_ptj3u"]
 [ext_resource type="Texture2D" uid="uid://dq06w21l7woal" path="res://icons/font_awesome/user-large.svg" id="16_m0qrx"]
 
@@ -148,13 +149,17 @@ texture = ExtResource("10_oefr8")
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("11_ptj3u")
+texture = ExtResource("10_sw3dl")
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("8_erx31")
+texture = ExtResource("11_ptj3u")
 
 [node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_erx31")
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_m55xj")
 
