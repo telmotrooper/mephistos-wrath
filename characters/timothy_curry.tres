@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://fjov23yxdht3"]
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://fjov23yxdht3"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_1cfat"]
+[ext_resource type="Resource" uid="uid://egfdor26t4kp" path="res://abilities/generic_6.tres" id="1_p5xpy"]
 
 [resource]
 script = ExtResource("1_1cfat")
@@ -9,3 +10,4 @@ max_hp = 80
 hp = 80
 max_mp = 220
 mp = 180
+ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_p5xpy")])

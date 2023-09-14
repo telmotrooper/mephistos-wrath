@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://egfdor26t4kp"]
+
+[ext_resource type="Texture2D" uid="uid://iv6klvawjeqx" path="res://icons/craftpix/free_50_rpg_aeromancer_skill_icons/40.png" id="1_52vje"]
+[ext_resource type="Script" path="res://abilities/ability.gd" id="2_uos5n"]
+
+[resource]
+script = ExtResource("2_uos5n")
+name = &"Generic Ability 6"
+description = &"Doesn\'t do anything."
+image = ExtResource("1_52vje")
+cooldown_time = 1.0

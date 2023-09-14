@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_516dt")
-name = &"Generic Ability"
+name = &"Generic Ability 4"
 description = &"Doesn\'t do anything."
 image = ExtResource("1_cvqc3")
 cooldown_time = 1.0

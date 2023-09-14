@@ -15,4 +15,4 @@ max_hp = 120
 hp = 100
 max_mp = 80
 mp = 80
-ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_d8hwi"), null, ExtResource("2_i55yg"), ExtResource("2_i55yg"), ExtResource("3_x3nj2"), ExtResource("4_70br0"), ExtResource("5_847x2"), ExtResource("6_y2rtq")])
+ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_d8hwi"), ExtResource("2_i55yg"), ExtResource("3_x3nj2"), ExtResource("4_70br0"), ExtResource("5_847x2"), ExtResource("6_y2rtq")])
