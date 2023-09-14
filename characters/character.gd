@@ -2,6 +2,7 @@ extends Resource
 class_name Character
 
 @export var name: StringName = "Character Name"
+@export var picture : CompressedTexture2D
 
 @export var max_hp: int
 @export var hp: int
