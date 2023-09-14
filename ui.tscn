@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=13 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
 [ext_resource type="Script" path="res://lock_button.gd" id="4_jpk3e"]
 [ext_resource type="PackedScene" uid="uid://bai5fwngw35v5" path="res://character_portrait.tscn" id="6_quqll"]
+[ext_resource type="Texture2D" uid="uid://br30bl3lh4f8g" path="res://icons/font_awesome/earth-americas.svg" id="8_erx31"]
 [ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="8_g7gv6"]
+[ext_resource type="Texture2D" uid="uid://bhuikkrjbttnf" path="res://icons/font_awesome/gears.svg" id="8_m55xj"]
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="9_ggjba"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="10_hb6mf"]
+[ext_resource type="Texture2D" uid="uid://1u66aapdt1l7" path="res://icons/font_awesome/graduation-cap.svg" id="10_oefr8"]
+[ext_resource type="Texture2D" uid="uid://b0w2gqiom18bs" path="res://icons/font_awesome/scroll.svg" id="11_ptj3u"]
+[ext_resource type="Texture2D" uid="uid://dq06w21l7woal" path="res://icons/font_awesome/user-large.svg" id="16_m0qrx"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -127,6 +132,31 @@ HP: 100/100
 MP: 100/100"
 character = ExtResource("10_hb6mf")
 hotkey = &"f4"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_m0qrx")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_oefr8")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_ptj3u")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_erx31")
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_m55xj")
 
 [node name="HiddenAbilities" type="Control" parent="."]
 unique_name_in_owner = true
