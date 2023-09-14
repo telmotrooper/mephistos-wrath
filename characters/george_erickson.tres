@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://8xr1er6ruqpx"]
+[gd_resource type="Resource" script_class="Character" load_steps=8 format=3 uid="uid://8xr1er6ruqpx"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_74qr3"]
 [ext_resource type="Resource" uid="uid://b6e6v8ccfjr2v" path="res://abilities/heal.tres" id="1_d8hwi"]
 [ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="2_i55yg"]
+[ext_resource type="Resource" uid="uid://mqrwannxslap" path="res://abilities/generic_1.tres" id="3_x3nj2"]
+[ext_resource type="Resource" uid="uid://daxs5cvv5lp61" path="res://abilities/generic_2.tres" id="4_70br0"]
+[ext_resource type="Resource" uid="uid://6t33mnkjjbf6" path="res://abilities/generic_3.tres" id="5_847x2"]
+[ext_resource type="Resource" uid="uid://b6wm3eh3f7ygm" path="res://abilities/generic_4.tres" id="6_y2rtq"]
 
 [resource]
 script = ExtResource("1_74qr3")
@@ -11,4 +15,4 @@ max_hp = 120
 hp = 100
 max_mp = 80
 mp = 80
-ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_d8hwi"), null, ExtResource("2_i55yg"), ExtResource("2_i55yg")])
+ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_d8hwi"), null, ExtResource("2_i55yg"), ExtResource("2_i55yg"), ExtResource("3_x3nj2"), ExtResource("4_70br0"), ExtResource("5_847x2"), ExtResource("6_y2rtq")])
