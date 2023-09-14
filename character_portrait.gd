@@ -12,8 +12,8 @@ func _ready() -> void:
 		GameState.selected_characters = [self]
 		_on_portrait_selected()
 	
-	tooltip_text = "%s\nHP: %d/%d\nMP: %d/%d" % [
-		character.name, character.hp, character.max_hp, character.mp, character.max_mp
+	tooltip_text = "%s (%s)\nHP: %d/%d\nMP: %d/%d" % [
+		character.name, character.character_class.name, character.hp, character.max_hp, character.mp, character.max_mp
 	]
 	$Mask/Portrait.texture = character.picture
 	$HP.value = float(character.hp) / character.max_hp * 50

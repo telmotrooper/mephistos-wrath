@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://8xr1er6ruqpx"]
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://8xr1er6ruqpx"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_74qr3"]
 [ext_resource type="Resource" uid="uid://b6e6v8ccfjr2v" path="res://abilities/heal.tres" id="1_d8hwi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://6t33mnkjjbf6" path="res://abilities/generic_3.tres" id="5_847x2"]
 [ext_resource type="Resource" uid="uid://b6wm3eh3f7ygm" path="res://abilities/generic_4.tres" id="6_y2rtq"]
 [ext_resource type="Texture2D" uid="uid://brg11uqivb4oh" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/23.png" id="7_l86wn"]
+[ext_resource type="Resource" uid="uid://bjedtxuaw7e3r" path="res://classes/mage.tres" id="7_s1it5"]
 
 [resource]
 script = ExtResource("1_74qr3")
@@ -17,4 +18,5 @@ max_hp = 120
 hp = 100
 max_mp = 80
 mp = 80
+character_class = ExtResource("7_s1it5")
 ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_d8hwi"), ExtResource("2_i55yg"), ExtResource("3_x3nj2"), ExtResource("4_70br0"), ExtResource("5_847x2"), ExtResource("6_y2rtq")])

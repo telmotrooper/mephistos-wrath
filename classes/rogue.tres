@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://b2ueitdqi0f2e"]
+
+[ext_resource type="Script" path="res://classes/class.gd" id="1_gcqu4"]
+
+[resource]
+script = ExtResource("1_gcqu4")
+name = &"Rogue"
+description = &"Class description."
