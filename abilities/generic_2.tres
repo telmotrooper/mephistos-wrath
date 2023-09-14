@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://daxs5cvv5lp61"]
+
+[ext_resource type="Texture2D" uid="uid://bwuxtdj0e4dqd" path="res://icons/craftpix/free_rpg_warlock_skill_icons/2.png" id="1_tlsq1"]
+[ext_resource type="Script" path="res://abilities/ability.gd" id="2_lordh"]
+
+[resource]
+script = ExtResource("2_lordh")
+name = &"Generic Ability 2"
+description = &"Doesn\'t do anything."
+image = ExtResource("1_tlsq1")
+cooldown_time = 1.0
