@@ -7,14 +7,14 @@ func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	else:
 		node.show()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("character_window"):
-		%CharacterWindow.show()
+		_on_top_menu_button_pressed("%CharacterWindow")
 	elif Input.is_action_just_pressed("abilities_window"):
-		%AbilitiesWindow.show()
+		_on_top_menu_button_pressed("%AbilitiesWindow")
 	elif Input.is_action_just_pressed("inventory_window"):
-		%InventoryWindow.show()
+		_on_top_menu_button_pressed("%InventoryWindow")
 	elif Input.is_action_just_pressed("quest_log_window"):
-		%QuestLogWindow.show()
+		_on_top_menu_button_pressed("%QuestLogWindow")
 	elif Input.is_action_just_pressed("map_window"):
-		%MapWindow.show()
+		_on_top_menu_button_pressed("%MapWindow")
