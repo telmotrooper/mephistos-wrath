@@ -1,7 +1,8 @@
 extends Control
 
-func _on_abilities_button_pressed() -> void:
-	if $AbilitiesWindow.visible:
-		$AbilitiesWindow.hide()
+func _on_top_menu_button_pressed(unique_node_name: String) -> void:
+	var node = get_node(unique_node_name)
+	if node.visible:
+		node.hide()
 	else:
-		$AbilitiesWindow.show()
+		node.show()

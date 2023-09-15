@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=24 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_35h45"]
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0w2gqiom18bs" path="res://icons/font_awesome/scroll.svg" id="11_ptj3u"]
 [ext_resource type="Script" path="res://abilities_window.gd" id="14_b8oo3"]
 [ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="15_vd7k8"]
+[ext_resource type="Script" path="res://character_window.gd" id="15_ysrca"]
 [ext_resource type="Resource" uid="uid://mqrwannxslap" path="res://abilities/generic_1.tres" id="16_2s2ko"]
 [ext_resource type="Texture2D" uid="uid://dq06w21l7woal" path="res://icons/font_awesome/user-large.svg" id="16_m0qrx"]
 [ext_resource type="Resource" uid="uid://daxs5cvv5lp61" path="res://abilities/generic_2.tres" id="17_1ejhn"]
@@ -98,13 +99,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-icon = ExtResource("4_gl0di")
-script = ExtResource("4_jpk3e")
-
-[node name="LockButton" type="Button" parent="MarginContainer/Abilities/LockButton"]
-layout_mode = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+tooltip_text = "Lock/unlock abilities in place."
 icon = ExtResource("4_gl0di")
 script = ExtResource("4_jpk3e")
 
@@ -184,14 +179,25 @@ unique_name_in_owner = true
 visible = false
 anchors_preset = 0
 
-[node name="AbilitiesWindow" type="Window" parent="."]
+[node name="Windows" type="Node" parent="."]
+
+[node name="CharacterWindow" type="Window" parent="Windows"]
+unique_name_in_owner = true
+title = "Character"
+initial_position = 2
+size = Vector2i(400, 400)
+visible = false
+script = ExtResource("15_ysrca")
+
+[node name="AbilitiesWindow" type="Window" parent="Windows"]
+unique_name_in_owner = true
 title = "Abilities"
 initial_position = 2
 size = Vector2i(400, 400)
 visible = false
 script = ExtResource("14_b8oo3")
 
-[node name="MarginContainer" type="MarginContainer" parent="AbilitiesWindow"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/AbilitiesWindow"]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 10
@@ -199,39 +205,67 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="AbilitiesWindow/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Windows/AbilitiesWindow/MarginContainer"]
 layout_mode = 2
 columns = 4
 
-[node name="AbilityButton" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("15_vd7k8")
 
-[node name="AbilityButton2" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton2" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("16_2s2ko")
 
-[node name="AbilityButton3" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton3" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("17_1ejhn")
 
-[node name="AbilityButton4" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton4" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("18_67wdy")
 
-[node name="AbilityButton5" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton5" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("18_dbc2g")
 
-[node name="AbilityButton6" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton6" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("19_ay7vc")
 
-[node name="AbilityButton7" parent="AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton7" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("20_jukx0")
 
+[node name="InventoryWindow" type="Window" parent="Windows"]
+unique_name_in_owner = true
+title = "Inventory"
+initial_position = 2
+size = Vector2i(400, 400)
+visible = false
+
+[node name="QuestLogWindow" type="Window" parent="Windows"]
+unique_name_in_owner = true
+title = "Quest Log"
+initial_position = 2
+size = Vector2i(400, 400)
+visible = false
+
+[node name="MapWindow" type="Window" parent="Windows"]
+unique_name_in_owner = true
+title = "Map"
+initial_position = 2
+size = Vector2i(400, 400)
+visible = false
+
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton" to="MarginContainer/Abilities/LockButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/Abilities/LockButton/LockButton" to="MarginContainer/Abilities/LockButton/LockButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/TopMenu/AbilitiesButton" to="." method="_on_abilities_button_pressed"]
-[connection signal="close_requested" from="AbilitiesWindow" to="AbilitiesWindow" method="_on_close_requested"]
+[connection signal="pressed" from="MarginContainer/TopMenu/CharacterButton" to="." method="_on_top_menu_button_pressed" binds= ["%CharacterWindow"]]
+[connection signal="pressed" from="MarginContainer/TopMenu/AbilitiesButton" to="." method="_on_top_menu_button_pressed" binds= ["%AbilitiesWindow"]]
+[connection signal="pressed" from="MarginContainer/TopMenu/InventoryButton" to="." method="_on_top_menu_button_pressed" binds= ["%InventoryWindow"]]
+[connection signal="pressed" from="MarginContainer/TopMenu/QuestLogButton" to="." method="_on_top_menu_button_pressed" binds= ["%QuestLogWindow"]]
+[connection signal="pressed" from="MarginContainer/TopMenu/MapButton" to="." method="_on_top_menu_button_pressed" binds= ["%MapWindow"]]
+[connection signal="close_requested" from="Windows/CharacterWindow" to="Windows/CharacterWindow" method="hide"]
+[connection signal="close_requested" from="Windows/AbilitiesWindow" to="Windows/AbilitiesWindow" method="hide"]
+[connection signal="close_requested" from="Windows/InventoryWindow" to="Windows/InventoryWindow" method="hide"]
+[connection signal="close_requested" from="Windows/QuestLogWindow" to="Windows/QuestLogWindow" method="hide"]
+[connection signal="close_requested" from="Windows/MapWindow" to="Windows/MapWindow" method="hide"]
