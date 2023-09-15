@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=22 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
 [ext_resource type="Texture2D" uid="uid://dosni1lecymy3" path="res://icons/font_awesome/lock.svg" id="4_gl0di"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://1u66aapdt1l7" path="res://icons/font_awesome/graduation-cap.svg" id="10_oefr8"]
 [ext_resource type="Texture2D" uid="uid://cph106f74tf5t" path="res://icons/font_awesome/briefcase.svg" id="10_sw3dl"]
 [ext_resource type="Texture2D" uid="uid://b0w2gqiom18bs" path="res://icons/font_awesome/scroll.svg" id="11_ptj3u"]
+[ext_resource type="Script" path="res://abilities_window.gd" id="14_b8oo3"]
 [ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="15_vd7k8"]
 [ext_resource type="Resource" uid="uid://mqrwannxslap" path="res://abilities/generic_1.tres" id="16_2s2ko"]
 [ext_resource type="Texture2D" uid="uid://dq06w21l7woal" path="res://icons/font_awesome/user-large.svg" id="16_m0qrx"]
@@ -141,61 +142,32 @@ MP: 100/100"
 character = ExtResource("10_hb6mf")
 hotkey = &"f4"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="TopMenu" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("16_m0qrx")
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("10_oefr8")
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("10_sw3dl")
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("11_ptj3u")
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("8_erx31")
 
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("8_m55xj")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("16_m0qrx")
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("10_oefr8")
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("10_sw3dl")
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("11_ptj3u")
-
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("8_erx31")
-
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/HBoxContainer2"]
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 texture = ExtResource("8_m55xj")
 
@@ -208,6 +180,7 @@ anchors_preset = 0
 title = "Abilities"
 initial_position = 2
 size = Vector2i(400, 400)
+script = ExtResource("14_b8oo3")
 
 [node name="GridContainer" type="GridContainer" parent="AbilitiesWindow"]
 columns = 4
