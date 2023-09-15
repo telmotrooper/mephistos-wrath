@@ -140,38 +140,39 @@ character = ExtResource("10_hb6mf")
 hotkey = &"f4"
 
 [node name="TopMenu" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="CharacterButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Character"
+tooltip_text = "Character (C)"
 texture_normal = ExtResource("16_m0qrx")
 
 [node name="AbilitiesButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Abilities"
+tooltip_text = "Abilities (P)"
 texture_normal = ExtResource("10_oefr8")
 
 [node name="InventoryButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Inventory"
+tooltip_text = "Inventory (I)"
 texture_normal = ExtResource("10_sw3dl")
 
 [node name="QuestLogButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Quest Log"
+tooltip_text = "Quest Log (L)"
 texture_normal = ExtResource("11_ptj3u")
 
 [node name="MapButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Map"
+tooltip_text = "Map (M)"
 texture_normal = ExtResource("8_erx31")
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-tooltip_text = "Settings"
+tooltip_text = "Settings (Esc)"
 texture_normal = ExtResource("8_m55xj")
 
 [node name="HiddenAbilities" type="Control" parent="."]
