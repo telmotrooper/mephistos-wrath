@@ -149,31 +149,35 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/TopMenu"]
+[node name="CharacterButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-texture = ExtResource("16_m0qrx")
+tooltip_text = "Character"
+texture_normal = ExtResource("16_m0qrx")
 
 [node name="AbilitiesButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Abilities"
 texture_normal = ExtResource("10_oefr8")
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Inventory"
 texture_normal = ExtResource("10_sw3dl")
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/TopMenu"]
+[node name="QuestLogButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-texture = ExtResource("11_ptj3u")
+tooltip_text = "Quest Log"
+texture_normal = ExtResource("11_ptj3u")
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/TopMenu"]
+[node name="MapButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-texture = ExtResource("8_erx31")
+tooltip_text = "Map"
+texture_normal = ExtResource("8_erx31")
 
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/TopMenu"]
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
-texture = ExtResource("8_m55xj")
+tooltip_text = "Settings"
+texture_normal = ExtResource("8_m55xj")
 
 [node name="HiddenAbilities" type="Control" parent="."]
 unique_name_in_owner = true
