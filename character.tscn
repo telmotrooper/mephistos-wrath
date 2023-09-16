@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqttuytu4q3wa"]
+
+[ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/knight.blend" id="1_eglrw"]
+
+[node name="Character" type="Node3D"]
+
+[node name="knight" parent="." instance=ExtResource("1_eglrw")]

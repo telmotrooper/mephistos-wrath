@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=10 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="1_ydand"]
+[ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="2_hyyls"]
+[ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://character.tscn" id="2_pi2xq"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
 colors = PackedColorArray(1, 1, 1, 1, 0.192364, 0.422228, 1, 1)
@@ -20,6 +22,10 @@ sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
 background_mode = 2
 sky = SubResource("Sky_l1ob6")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pexv"]
+albedo_texture = ExtResource("2_hyyls")
+uv1_scale = Vector3(10, 10, 10)
+
 [node name="Main" type="Node3D"]
 
 [node name="UI" parent="." instance=ExtResource("1_ydand")]
@@ -27,5 +33,25 @@ sky = SubResource("Sky_l1ob6")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lqe7")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 7)
 current = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_2pexv")
+
+[node name="Character" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 0)
+
+[node name="Character2" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 0)
+
+[node name="Character3" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 2)
+
+[node name="Character4" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 2)
