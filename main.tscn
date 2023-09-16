@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://character.tscn" id="2_pi2xq"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
-colors = PackedColorArray(1, 1, 1, 1, 0.192364, 0.422228, 1, 1)
+offsets = PackedFloat32Array(0.2, 0.65641)
+colors = PackedColorArray(0.630841, 0.754209, 1, 1, 0.14902, 0.384314, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bum0l"]
 gradient = SubResource("Gradient_o4fjt")
@@ -21,6 +22,8 @@ sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
 [sub_resource type="Environment" id="Environment_3lqe7"]
 background_mode = 2
 sky = SubResource("Sky_l1ob6")
+ambient_light_source = 1
+reflected_light_source = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pexv"]
 albedo_texture = ExtResource("2_hyyls")
