@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=24 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_35h45"]
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
@@ -14,8 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://cph106f74tf5t" path="res://icons/font_awesome/briefcase.svg" id="10_sw3dl"]
 [ext_resource type="Texture2D" uid="uid://b0w2gqiom18bs" path="res://icons/font_awesome/scroll.svg" id="11_ptj3u"]
 [ext_resource type="Script" path="res://abilities_window.gd" id="14_b8oo3"]
+[ext_resource type="Resource" uid="uid://cp0wqx5lr5ode" path="res://abilities/generic.tres" id="15_vd7k8"]
 [ext_resource type="Script" path="res://character_window.gd" id="15_ysrca"]
+[ext_resource type="Resource" uid="uid://mqrwannxslap" path="res://abilities/generic_1.tres" id="16_2s2ko"]
 [ext_resource type="Texture2D" uid="uid://dq06w21l7woal" path="res://icons/font_awesome/user-large.svg" id="16_m0qrx"]
+[ext_resource type="Resource" uid="uid://daxs5cvv5lp61" path="res://abilities/generic_2.tres" id="17_1ejhn"]
+[ext_resource type="Resource" uid="uid://6t33mnkjjbf6" path="res://abilities/generic_3.tres" id="18_67wdy"]
+[ext_resource type="Resource" uid="uid://b6wm3eh3f7ygm" path="res://abilities/generic_4.tres" id="18_dbc2g"]
+[ext_resource type="Resource" uid="uid://drtbspyy5yh13" path="res://abilities/generic_5.tres" id="19_ay7vc"]
+[ext_resource type="Resource" uid="uid://egfdor26t4kp" path="res://abilities/generic_6.tres" id="20_jukx0"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -205,24 +212,31 @@ columns = 4
 
 [node name="AbilityButton" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("15_vd7k8")
 
 [node name="AbilityButton2" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("16_2s2ko")
 
 [node name="AbilityButton3" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("17_1ejhn")
 
 [node name="AbilityButton4" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("18_67wdy")
 
 [node name="AbilityButton5" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("18_dbc2g")
 
 [node name="AbilityButton6" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("19_ay7vc")
 
 [node name="AbilityButton7" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
 layout_mode = 2
+ability = ExtResource("20_jukx0")
 
 [node name="InventoryWindow" type="Window" parent="Windows"]
 unique_name_in_owner = true
