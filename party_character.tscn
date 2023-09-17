@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/knight.blend" id="2_8ryni"]
 [ext_resource type="Texture2D" uid="uid://bsrvwdx7p2w7b" path="res://icons/selected-character.svg" id="3_7fr1h"]
 
-[node name="PartyCharacter" type="Node3D"]
+[node name="PartyCharacter" type="Node3D" groups=["party_characters"]]
 script = ExtResource("1_bhd45")
 
 [node name="knight" parent="." instance=ExtResource("2_8ryni")]
 
-[node name="Decal" type="Decal" parent="."]
+[node name="Decal" type="Decal" parent="." groups=["party_characters"]]
+visible = false
 size = Vector3(1.5, 2, 1.5)
 texture_albedo = ExtResource("3_7fr1h")
