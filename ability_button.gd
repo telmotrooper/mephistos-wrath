@@ -1,4 +1,4 @@
-extends TextureProgressBar
+extends Control
 
 @export var key: StringName
 @export var ability: Ability
@@ -8,9 +8,9 @@ var spinning := false
 var clicked := false
 
 func _ready() -> void:
-	$Label.text = key
-	texture_under = ability.image
-	texture_progress = ability.image
+	$TextureProgressBar/Label.text = key
+	$TextureProgressBar.texture_under = ability.image
+	$TextureProgressBar.texture_progress = ability.image
 	if ability.name or ability.description:
 		tooltip_text = ability.name + "\n" + ability.description
 
@@ -26,11 +26,11 @@ func _physics_process(_delta: float) -> void:
 func spin(initial_value = 0.0) -> void:
 	spinning = true
 	
-	value = initial_value
+	$TextureProgressBar.value = initial_value
 	var cooldown_time = ability.cooldown_time * (100 - initial_value) / 100
 	
 	var tween = create_tween()
-	tween.tween_property(self, "value", 100, cooldown_time)
+	tween.tween_property($TextureProgressBar, "value", 100, cooldown_time)
 	tween.tween_callback(func(): spinning = false)
 
 func _gui_input(event: InputEvent) -> void:
@@ -56,8 +56,9 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if self != data:
 		self.ability = data.ability
 		_ready()
-		if data.value != 0:
-			spin(data.value)
+		var texture_progress_bar = data.get_child(0)
+		if texture_progress_bar.value != 0:
+			spin(texture_progress_bar.value)
 		data.ability = load("res://abilities/empty.tres")
 		data._ready()
 		update_character_abilities()
