@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=11 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="1_ydand"]
+[ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="2_hyyls"]
+[ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://character.tscn" id="2_pi2xq"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
-colors = PackedColorArray(1, 1, 1, 1, 0.192364, 0.422228, 1, 1)
+offsets = PackedFloat32Array(0.2, 0.65641)
+colors = PackedColorArray(0.630841, 0.754209, 1, 1, 0, 0.5303, 0.809526, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bum0l"]
 gradient = SubResource("Gradient_o4fjt")
@@ -18,7 +21,23 @@ sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
 
 [sub_resource type="Environment" id="Environment_3lqe7"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_l1ob6")
+ambient_light_source = 1
+reflected_light_source = 1
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_energy = 0.5
+fog_density = 0.05
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.09
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_3o2m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pexv"]
+albedo_texture = ExtResource("2_hyyls")
+uv1_scale = Vector3(10, 10, 10)
 
 [node name="Main" type="Node3D"]
 
@@ -26,6 +45,37 @@ sky = SubResource("Sky_l1ob6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lqe7")
+camera_attributes = SubResource("CameraAttributesPhysical_3o2m4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 7)
 current = true
+
+[node name="Character" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 0)
+
+[node name="Character2" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 0)
+
+[node name="Character3" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 2)
+
+[node name="Character4" parent="." instance=ExtResource("2_pi2xq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 2)
+
+[node name="Scenario" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Scenario"]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_2pexv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -3)
+size = Vector3(1, 5, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Scenario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -9)
+size = Vector3(5, 7, 5)

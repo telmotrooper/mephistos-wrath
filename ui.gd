@@ -9,7 +9,7 @@ func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("character_window"):
-		_on_top_menu_button_pressed("%CharacterWindow")
+		_on_top_menu_button_pressed("%ChiaracterWindow")
 	elif Input.is_action_just_pressed("abilities_window"):
 		_on_top_menu_button_pressed("%AbilitiesWindow")
 	elif Input.is_action_just_pressed("inventory_window"):
