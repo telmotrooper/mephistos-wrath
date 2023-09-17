@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqttuytu4q3wa"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_bhd45"]
+[ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/knight.blend" id="2_8ryni"]
+
+[node name="PartyCharacter" type="Node3D"]
+script = ExtResource("1_bhd45")
+
+[node name="knight" parent="." instance=ExtResource("2_8ryni")]

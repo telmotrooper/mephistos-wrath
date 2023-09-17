@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="1_ydand"]
 [ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="2_hyyls"]
-[ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://character.tscn" id="2_pi2xq"]
+[ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://party_character.tscn" id="2_pi2xq"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
 offsets = PackedFloat32Array(0.2, 0.65641)
@@ -54,16 +54,16 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 7)
 current = true
 
-[node name="Character" parent="." instance=ExtResource("2_pi2xq")]
+[node name="PartyCharacter" parent="." instance=ExtResource("2_pi2xq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 0)
 
-[node name="Character2" parent="." instance=ExtResource("2_pi2xq")]
+[node name="PartyCharacter2" parent="." instance=ExtResource("2_pi2xq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 0)
 
-[node name="Character3" parent="." instance=ExtResource("2_pi2xq")]
+[node name="PartyCharacter3" parent="." instance=ExtResource("2_pi2xq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 2)
 
-[node name="Character4" parent="." instance=ExtResource("2_pi2xq")]
+[node name="PartyCharacter4" parent="." instance=ExtResource("2_pi2xq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 2)
 
 [node name="Scenario" type="Node3D" parent="."]
