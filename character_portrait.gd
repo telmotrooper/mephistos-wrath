@@ -11,6 +11,7 @@ func _ready() -> void:
 	if len(GameState.selected_characters) == 0:
 		GameState.selected_characters = [self]
 		_on_portrait_selected()
+		get_tree().call_group("party_characters", "_on_character_selected")
 	
 	tooltip_text = "%s (%s)\nHP: %d/%d\nMP: %d/%d" % [
 		character.name, character.character_class.name, character.hp, character.max_hp, character.mp, character.max_mp
@@ -28,6 +29,7 @@ func select_portrait() -> void:
 	GameState.previously_selected_character = GameState.selected_characters[0]
 	GameState.selected_characters = [self]
 	get_tree().call_group("character_portraits", "_on_portrait_selected")
+	get_tree().call_group("party_characters", "_on_character_selected")
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:

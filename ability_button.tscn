@@ -7,16 +7,24 @@
 [sub_resource type="Theme" id="Theme_cpg4t"]
 Label/font_sizes/font_size = 16
 
-[node name="AbilityButton" type="TextureProgressBar" groups=["ability_buttons"]]
+[node name="AbilityButton" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_f5roc")
+ability = ExtResource("3_eobk6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["ability_buttons"]]
+layout_mode = 0
 value = 100.0
 fill_mode = 4
 texture_under = ExtResource("1_3stpe")
 texture_progress = ExtResource("1_3stpe")
 tint_under = Color(0.568627, 0.568627, 0.568627, 1)
-script = ExtResource("2_f5roc")
-ability = ExtResource("3_eobk6")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="TextureProgressBar"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
