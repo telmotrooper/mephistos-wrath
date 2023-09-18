@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://dd25m6it6auq0"]
 
-[ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="1_ydand"]
 [ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="2_hyyls"]
 [ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://party_character.tscn" id="2_pi2xq"]
 [ext_resource type="Resource" uid="uid://8xr1er6ruqpx" path="res://characters/george_erickson.tres" id="3_tffav"]
 [ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="4_3uso2"]
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="5_iuud7"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="6_3orr4"]
+[ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="7_a1gmk"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
 offsets = PackedFloat32Array(0.2, 0.65641)
@@ -45,7 +45,7 @@ uv1_scale = Vector3(10, 10, 10)
 
 [node name="Main" type="Node3D"]
 
-[node name="UI" parent="." instance=ExtResource("1_ydand")]
+[node name="UI" parent="." instance=ExtResource("7_a1gmk")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lqe7")
