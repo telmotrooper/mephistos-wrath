@@ -28,15 +28,21 @@ func _physics_process(_delta: float) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			if len(selected) == 0:
-				dragging = true
-				drag_start = event.position
+			dragging = true
+			drag_start = event.position
 		elif dragging:
 			dragging = false
 			queue_redraw()
+			print(selected)
 	if event is InputEventMouseMotion and dragging:
 		queue_redraw()
 
 func _draw() -> void:
 	if dragging:
-		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start), Color.YELLOW, false, 1.0)
+		var box = Rect2(drag_start, get_global_mouse_position() - drag_start)
+		draw_rect(box, Color.YELLOW, false, 1.0)
+		var party_characters = get_tree().get_nodes_in_group("party_characters")
+		selected = party_characters.filter(
+			func(node): return box.abs().has_point(get_viewport().get_camera_3d().unproject_position(node.transform.origin))
+		)
+		
