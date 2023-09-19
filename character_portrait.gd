@@ -9,7 +9,8 @@ var border_selected : CompressedTexture2D = load("res://icons/player-circle-bord
 
 func _ready() -> void:
 	if len(GameState.selected_characters) == 0:
-		GameState.selected_characters = [self]
+		GameState.active_character = character
+		GameState.selected_characters = [character]
 		_on_portrait_selected()
 		get_tree().call_group("party_characters", "_on_character_selected")
 	
@@ -26,8 +27,8 @@ func _physics_process(_delta: float) -> void:
 		select_portrait()
 
 func select_portrait() -> void:
-	GameState.previously_selected_character = GameState.selected_characters[0]
-	GameState.selected_characters = [self]
+	GameState.active_character = character
+	GameState.selected_characters = [character]
 	get_tree().call_group("character_portraits", "_on_portrait_selected")
 	get_tree().call_group("party_characters", "_on_character_selected")
 
@@ -36,11 +37,12 @@ func _gui_input(event: InputEvent) -> void:
 		select_portrait()
 
 func _on_portrait_selected() -> void:
-	if GameState.selected_characters[0] != self:
+	if not GameState.selected_characters.has(character):
 		$Border.texture = border
-	elif GameState.previously_selected_character != self:
+	else:
 		$Border.texture = border_selected
-		
+	
+	if GameState.active_character == character:
 		var lock_button: Node
 		
 		for child in %Abilities.get_children():

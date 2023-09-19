@@ -13,6 +13,9 @@ var action_to_node = {
 	"map_window": "%MapWindow"
 }
 
+var select_all := false
+var stop := false
+
 func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	var node = get_node(unique_node_name)
 	if node.visible:
@@ -28,15 +31,38 @@ func _physics_process(_delta: float) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			if len(selected) == 0:
-				dragging = true
-				drag_start = event.position
+			dragging = true
+			drag_start = event.position
 		elif dragging:
 			dragging = false
 			queue_redraw()
+			if len(selected) > 0:
+				GameState.selected_characters.assign(selected)
+				get_tree().call_group("character_portraits", "_on_portrait_selected")
+				get_tree().call_group("party_characters", "_on_character_selected")
 	if event is InputEventMouseMotion and dragging:
 		queue_redraw()
 
 func _draw() -> void:
 	if dragging:
-		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start), Color.YELLOW, false, 1.0)
+		var box := Rect2(drag_start, get_global_mouse_position() - drag_start)
+		draw_rect(box, Color.YELLOW, false, 1.0)
+		var party_characters = get_tree().get_nodes_in_group("party_characters")
+		selected = party_characters.filter(
+			func(node): return box.abs().has_point(get_viewport().get_camera_3d().unproject_position(node.transform.origin))
+		).map(func(node): return node.character)
+
+
+func _on_select_all_button_pressed() -> void:
+	select_all = !select_all
+	if select_all:
+		%SelectAllButton.icon = load("res://icons/font_awesome/user-group.svg")
+	else:
+		%SelectAllButton.icon = load("res://icons/font_awesome/user-large-resized.svg")
+
+func _on_stop_button_pressed() -> void:
+	stop = !stop
+	if stop:
+		%StopButton.icon = load("res://icons/font_awesome/hand.svg")
+	else:
+		%StopButton.icon = load("res://icons/font_awesome/person-walking.svg")
