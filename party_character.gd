@@ -3,6 +3,7 @@ extends Node3D
 @export var character: Character
 
 func _ready() -> void:
+	$Label3D.text = character.name
 	$knight/AnimationPlayer.play("Combat Idle")
 
 func set_selected(value) -> void:
@@ -14,3 +15,9 @@ func _on_character_selected() -> void:
 func _on_character_body_3d_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
+
+func _on_character_body_3d_mouse_entered() -> void:
+	$Label3D.show()
+
+func _on_character_body_3d_mouse_exited() -> void:
+	$Label3D.hide()
