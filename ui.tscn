@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://br30bl3lh4f8g" path="res://icons/font_awesome/earth-americas.svg" id="8_erx31"]
 [ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="8_g7gv6"]
 [ext_resource type="Texture2D" uid="uid://bhuikkrjbttnf" path="res://icons/font_awesome/gears.svg" id="8_m55xj"]
-[ext_resource type="Texture2D" uid="uid://csix75i6kw3ud" path="res://icons/font_awesome/user-group.svg" id="9_3pl5a"]
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="9_ggjba"]
+[ext_resource type="Texture2D" uid="uid://cv47uvuaynhu1" path="res://icons/font_awesome/user-large-resized.svg" id="9_xfqkb"]
 [ext_resource type="Texture2D" uid="uid://db225k8kb6q8x" path="res://icons/font_awesome/person-walking.svg" id="10_dn88d"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="10_hb6mf"]
 [ext_resource type="Texture2D" uid="uid://1u66aapdt1l7" path="res://icons/font_awesome/graduation-cap.svg" id="10_oefr8"]
@@ -162,13 +162,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SelectAllButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 focus_mode = 0
-icon = ExtResource("9_3pl5a")
+icon = ExtResource("9_xfqkb")
 icon_alignment = 1
 
 [node name="StopButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 focus_mode = 0

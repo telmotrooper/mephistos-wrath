@@ -14,7 +14,7 @@ var action_to_node = {
 }
 
 var select_all := false
-var follow := false
+var stop := false
 
 func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	var node = get_node(unique_node_name)
@@ -54,7 +54,15 @@ func _draw() -> void:
 
 
 func _on_select_all_button_pressed() -> void:
-	print("select all")
+	select_all = !select_all
+	if select_all:
+		%SelectAllButton.icon = load("res://icons/font_awesome/user-group.svg")
+	else:
+		%SelectAllButton.icon = load("res://icons/font_awesome/user-large-resized.svg")
 
 func _on_stop_button_pressed() -> void:
-	print("stop")
+	stop = !stop
+	if stop:
+		%StopButton.icon = load("res://icons/font_awesome/hand.svg")
+	else:
+		%StopButton.icon = load("res://icons/font_awesome/person-walking.svg")
