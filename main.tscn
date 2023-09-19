@@ -59,19 +59,19 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 current = true
 
 [node name="PartyCharacter" parent="." instance=ExtResource("2_pi2xq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 0)
 character = ExtResource("3_tffav")
 
 [node name="PartyCharacter2" parent="." instance=ExtResource("2_pi2xq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, 0.5, 1)
 character = ExtResource("4_3uso2")
 
 [node name="PartyCharacter3" parent="." instance=ExtResource("2_pi2xq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.5, 2)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 2)
 character = ExtResource("5_iuud7")
 
 [node name="PartyCharacter4" parent="." instance=ExtResource("2_pi2xq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, 2)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0.5, 1)
 character = ExtResource("6_3orr4")
 
 [node name="Scenario" type="Node3D" parent="."]
