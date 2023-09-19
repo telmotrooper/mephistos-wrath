@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=26 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_35h45"]
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://br30bl3lh4f8g" path="res://icons/font_awesome/earth-americas.svg" id="8_erx31"]
 [ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="8_g7gv6"]
 [ext_resource type="Texture2D" uid="uid://bhuikkrjbttnf" path="res://icons/font_awesome/gears.svg" id="8_m55xj"]
+[ext_resource type="Texture2D" uid="uid://csix75i6kw3ud" path="res://icons/font_awesome/user-group.svg" id="9_3pl5a"]
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="9_ggjba"]
+[ext_resource type="Texture2D" uid="uid://db225k8kb6q8x" path="res://icons/font_awesome/person-walking.svg" id="10_dn88d"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="10_hb6mf"]
 [ext_resource type="Texture2D" uid="uid://1u66aapdt1l7" path="res://icons/font_awesome/graduation-cap.svg" id="10_oefr8"]
 [ext_resource type="Texture2D" uid="uid://cph106f74tf5t" path="res://icons/font_awesome/briefcase.svg" id="10_sw3dl"]
@@ -101,6 +103,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Lock/unlock abilities in place."
+focus_mode = 0
 icon = ExtResource("4_gl0di")
 script = ExtResource("4_jpk3e")
 
@@ -139,6 +142,38 @@ HP: 100/100
 MP: 100/100"
 character = ExtResource("10_hb6mf")
 hotkey = &"f4"
+
+[node name="Control" type="Control" parent="MarginContainer/Portraits"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Portraits/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -17.0
+offset_right = 42.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectAllButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("9_3pl5a")
+icon_alignment = 1
+
+[node name="StopButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("10_dn88d")
+icon_alignment = 1
 
 [node name="TopMenu" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -261,6 +296,8 @@ size = Vector2i(400, 400)
 visible = false
 
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton" to="MarginContainer/Abilities/LockButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/Portraits/Control/HBoxContainer/SelectAllButton" to="." method="_on_select_all_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Portraits/Control/HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
 [connection signal="pressed" from="MarginContainer/TopMenu/CharacterButton" to="." method="_on_top_menu_button_pressed" binds= ["%CharacterWindow"]]
 [connection signal="pressed" from="MarginContainer/TopMenu/AbilitiesButton" to="." method="_on_top_menu_button_pressed" binds= ["%AbilitiesWindow"]]
 [connection signal="pressed" from="MarginContainer/TopMenu/InventoryButton" to="." method="_on_top_menu_button_pressed" binds= ["%InventoryWindow"]]

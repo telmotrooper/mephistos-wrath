@@ -13,6 +13,9 @@ var action_to_node = {
 	"map_window": "%MapWindow"
 }
 
+var select_all := false
+var follow := false
+
 func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	var node = get_node(unique_node_name)
 	if node.visible:
@@ -48,3 +51,10 @@ func _draw() -> void:
 		selected = party_characters.filter(
 			func(node): return box.abs().has_point(get_viewport().get_camera_3d().unproject_position(node.transform.origin))
 		).map(func(node): return node.character)
+
+
+func _on_select_all_button_pressed() -> void:
+	print("select all")
+
+func _on_stop_button_pressed() -> void:
+	print("stop")
