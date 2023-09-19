@@ -27,6 +27,10 @@ func _physics_process(_delta: float) -> void:
 	for action in action_to_node:
 		if Input.is_action_just_pressed(action):
 			_on_top_menu_button_pressed(action_to_node[action])
+	if Input.is_action_just_pressed("select_all"):
+		var party_characters = get_tree().get_nodes_in_group("party_characters")
+		selected = party_characters.map(func(node): return node.character)
+		GameState.select_characters(null, selected)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -37,9 +41,7 @@ func _gui_input(event: InputEvent) -> void:
 			dragging = false
 			queue_redraw()
 			if len(selected) > 0:
-				GameState.selected_characters.assign(selected)
-				get_tree().call_group("character_portraits", "_on_portrait_selected")
-				get_tree().call_group("party_characters", "_on_character_selected")
+				GameState.select_characters(null, selected)
 	if event is InputEventMouseMotion and dragging:
 		queue_redraw()
 

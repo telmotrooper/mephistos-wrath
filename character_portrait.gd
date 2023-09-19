@@ -27,10 +27,7 @@ func _physics_process(_delta: float) -> void:
 		select_portrait()
 
 func select_portrait() -> void:
-	GameState.active_character = character
-	GameState.selected_characters = [character]
-	get_tree().call_group("character_portraits", "_on_portrait_selected")
-	get_tree().call_group("party_characters", "_on_character_selected")
+	GameState.select_characters(character, [character])
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
