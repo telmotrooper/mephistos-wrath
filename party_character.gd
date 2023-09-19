@@ -13,6 +13,7 @@ func _on_character_selected() -> void:
 
 func _on_character_body_3d_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		GameState.active_character = character
 		GameState.selected_characters = [character]
 		get_tree().call_group("character_portraits", "_on_portrait_selected")
 		get_tree().call_group("party_characters", "_on_character_selected")
