@@ -26,7 +26,9 @@ texture_albedo = ExtResource("3_7fr1h")
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 visible = false
+pixel_size = 0.0006
 billboard = 1
+fixed_size = true
 text = "Character Name"
 
 [connection signal="input_event" from="CharacterBody3D" to="." method="_on_character_body_3d_input_event"]
