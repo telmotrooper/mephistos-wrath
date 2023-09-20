@@ -22,6 +22,17 @@ func _physics_process(delta: float) -> void:
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 
+	var direction = Vector3(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		0,
+		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+
+	var horizontal_rotation = %HorizontalPivot.global_transform.basis.get_euler().y
+	direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+	
+	if GameState.active_character == character and direction != Vector3.ZERO:
+		$knight.look_at(position + direction, Vector3.UP)
+
 func set_selected(value) -> void:
 	$Decal.visible = value
 
