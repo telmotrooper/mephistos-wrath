@@ -42,5 +42,10 @@ func _on_character_body_3d_mouse_exited() -> void:
 	$Label3D.hide()
 
 func grab_camera() -> void:
+	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
+	var camera_position = %Camera3D.global_transform.origin
+	%Camera3D.global_transform.origin = existing_camera_position
 	%Camera3D.make_current()
+	var tween = create_tween()
+	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
 
