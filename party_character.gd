@@ -35,10 +35,14 @@ func _physics_process(delta: float) -> void:
 	direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 	
 	if GameState.active_character == character and direction != Vector3.ZERO:
+		if $knight/AnimationPlayer.current_animation != "Combat Running":
+			$knight/AnimationPlayer.play("Combat Running")
 		$knight.look_at(position + direction, Vector3.UP)
 		velocity.x = -direction.x * character_speed
 		velocity.z = -direction.z * character_speed
 	else:
+		if $knight/AnimationPlayer.current_animation != "Combat Idle":
+			$knight/AnimationPlayer.play("Combat Idle")
 		velocity = Vector3.ZERO
 	
 	move_and_slide()
