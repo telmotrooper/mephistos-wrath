@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		vertical += event.relative.y * mouse_sensitivity
 
 func _physics_process(delta: float) -> void:
+	vertical = clamp(vertical, -40, 50)
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 
