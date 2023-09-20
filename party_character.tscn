@@ -8,14 +8,12 @@
 radius = 0.25
 height = 1.7
 
-[node name="PartyCharacter" type="Node3D" groups=["party_characters"]]
+[node name="PartyCharacter" type="CharacterBody3D" groups=["party_characters"]]
 script = ExtResource("1_adfag")
 
 [node name="knight" parent="." instance=ExtResource("2_8ryni")]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_xl1hp")
 
@@ -44,7 +42,3 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(-1, 1.77636e-15, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 0.9, -2)
 current = true
-
-[connection signal="input_event" from="CharacterBody3D" to="." method="_on_character_body_3d_input_event"]
-[connection signal="mouse_entered" from="CharacterBody3D" to="." method="_on_character_body_3d_mouse_entered"]
-[connection signal="mouse_exited" from="CharacterBody3D" to="." method="_on_character_body_3d_mouse_exited"]

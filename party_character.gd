@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 
 @export var character: Character
 
@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 	vertical = clamp(vertical, -40, 50)
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
-
 
 func set_selected(value) -> void:
 	$Decal.visible = value
