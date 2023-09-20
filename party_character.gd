@@ -2,11 +2,15 @@ extends CharacterBody3D
 
 @export var character: Character
 
+# Camera
 var mouse_sensitivity := 0.5
 var horizontal := 0.0
 var vertical := 0.0
 var h_acceleration := 10.0
 var v_acceleration := 10.0
+
+# Character
+var character_speed := 8.0
 
 func _ready() -> void:
 	$Label3D.text = character.name
@@ -32,6 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	if GameState.active_character == character and direction != Vector3.ZERO:
 		$knight.look_at(position + direction, Vector3.UP)
+		velocity.x = -direction.x * character_speed
+		velocity.z = -direction.z * character_speed
+	else:
+		velocity = Vector3.ZERO
+	
+	move_and_slide()
 
 func set_selected(value) -> void:
 	$Decal.visible = value
