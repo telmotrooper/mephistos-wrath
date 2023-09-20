@@ -54,7 +54,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_3o2m4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="DefaultCamera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 7)
 current = true
 
@@ -77,13 +77,16 @@ character = ExtResource("6_3orr4")
 [node name="Scenario" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Scenario"]
+use_collision = true
 size = Vector3(200, 1, 200)
 material = SubResource("StandardMaterial3D_2pexv")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Scenario"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -3)
+use_collision = true
 size = Vector3(1, 5, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Scenario"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -9)
+use_collision = true
 size = Vector3(5, 7, 5)
