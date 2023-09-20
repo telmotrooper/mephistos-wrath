@@ -30,14 +30,14 @@ func _on_character_selected() -> void:
 	if (GameState.active_character == character):
 		grab_camera()
 
-func _on_character_body_3d_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
 
-func _on_character_body_3d_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	$Label3D.show()
 
-func _on_character_body_3d_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	$Label3D.hide()
 
 func grab_camera() -> void:
@@ -47,4 +47,3 @@ func grab_camera() -> void:
 	%Camera3D.make_current()
 	var tween = create_tween()
 	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
-
