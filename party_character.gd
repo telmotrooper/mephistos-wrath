@@ -11,6 +11,7 @@ var v_acceleration := 10.0
 
 # Character
 var character_speed := 8.0
+var fall_acceleration := 75.0
 
 func _ready() -> void:
 	$Label3D.text = character.name
@@ -45,6 +46,7 @@ func _physics_process(delta: float) -> void:
 			$knight/AnimationPlayer.play("Combat Idle")
 		velocity = Vector3.ZERO
 	
+	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
 
 func set_selected(value) -> void:
