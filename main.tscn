@@ -54,7 +54,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_3o2m4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="DefaultCamera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 4, 7)
 current = true
 

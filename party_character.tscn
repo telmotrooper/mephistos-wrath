@@ -31,6 +31,19 @@ billboard = 1
 fixed_size = true
 text = "Character Name"
 
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="HorizontalPivot" type="Node3D" parent="CameraPivot"]
+unique_name_in_owner = true
+
+[node name="VerticalPivot" type="Node3D" parent="CameraPivot/HorizontalPivot"]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/HorizontalPivot/VerticalPivot"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 1.77636e-15, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 1.9, -2)
+current = true
+
 [connection signal="input_event" from="CharacterBody3D" to="." method="_on_character_body_3d_input_event"]
 [connection signal="mouse_entered" from="CharacterBody3D" to="." method="_on_character_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterBody3D" to="." method="_on_character_body_3d_mouse_exited"]
