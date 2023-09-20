@@ -27,7 +27,6 @@ func set_selected(value) -> void:
 	$Decal.visible = value
 
 func _on_character_selected() -> void:
-	print("_on_character_selected")
 	set_selected(GameState.selected_characters.has(character))
 	if (GameState.active_character == character):
 		grab_camera()
