@@ -8,7 +8,7 @@
 radius = 0.25
 height = 1.7
 
-[node name="PartyCharacter" type="CharacterBody3D" groups=["party_characters"]]
+[node name="PartyCharacter" type="CharacterBody3D" groups=["highlightable", "party_characters"]]
 script = ExtResource("1_adfag")
 
 [node name="knight" parent="." instance=ExtResource("2_8ryni")]
@@ -44,5 +44,5 @@ transform = Transform3D(-1, 1.77636e-15, -8.74228e-08, -2.26267e-08, 0.965926, 0
 current = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="." to="." method="highlight"]
+[connection signal="mouse_exited" from="." to="." method="lowlight"]

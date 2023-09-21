@@ -7,7 +7,7 @@
 radius = 0.4
 height = 2.2
 
-[node name="orc" type="CharacterBody3D"]
+[node name="orc" type="CharacterBody3D" groups=["highlightable"]]
 script = ExtResource("1_uywr1")
 
 [node name="warrok" parent="." instance=ExtResource("1_us5ac")]
@@ -24,5 +24,5 @@ billboard = 1
 fixed_size = true
 text = "Orc"
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="." to="." method="highlight"]
+[connection signal="mouse_exited" from="." to="." method="lowlight"]

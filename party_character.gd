@@ -16,6 +16,13 @@ var fall_acceleration := 75.0
 func _ready() -> void:
 	$Label3D.text = character.name
 	$knight/AnimationPlayer.play("Combat Idle")
+	
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	
+	# Copy materials to make them unique between instances.
+	for mesh_instance in mesh_instances:
+		var material = mesh_instance.get_active_material(0).duplicate()
+		mesh_instance.set_surface_override_material(0, material)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -61,12 +68,6 @@ func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _norm
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
 
-func _on_mouse_entered() -> void:
-	$Label3D.show()
-
-func _on_mouse_exited() -> void:
-	$Label3D.hide()
-
 func grab_camera() -> void:
 	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
 	var camera_position = %Camera3D.global_transform.origin
@@ -74,3 +75,15 @@ func grab_camera() -> void:
 	%Camera3D.make_current()
 	var tween = create_tween()
 	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
+
+func highlight() -> void:
+	$Label3D.show()
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	for mesh_instance in mesh_instances:
+		mesh_instance.get_active_material(0).next_pass = load("res://shaders/highlight.material")
+
+func lowlight() -> void:
+	$Label3D.hide()
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	for mesh_instance in mesh_instances:
+		mesh_instance.get_active_material(0).next_pass = null
