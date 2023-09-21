@@ -61,12 +61,6 @@ func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _norm
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
 
-func _on_mouse_entered() -> void:
-	$Label3D.show()
-
-func _on_mouse_exited() -> void:
-	$Label3D.hide()
-
 func grab_camera() -> void:
 	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
 	var camera_position = %Camera3D.global_transform.origin
@@ -74,3 +68,9 @@ func grab_camera() -> void:
 	%Camera3D.make_current()
 	var tween = create_tween()
 	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
+
+func highlight() -> void:
+	$Label3D.show()
+
+func lowlight() -> void:
+	$Label3D.hide()

@@ -32,6 +32,11 @@ func _physics_process(_delta: float) -> void:
 		var party_characters = get_tree().get_nodes_in_group("party_characters")
 		selected = party_characters.map(func(node): return node.character)
 		GameState.select_characters(null, selected)
+	if Input.is_action_just_pressed("highlight"):
+		get_tree().call_group("highlightable", "highlight")
+	if Input.is_action_just_released("highlight"):
+		print("hey")
+		get_tree().call_group("highlightable", "lowlight")
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
