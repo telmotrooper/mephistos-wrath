@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 			if $knight/AnimationPlayer.current_animation != "Combat Idle":
 					$knight/AnimationPlayer.play("Combat Idle")
 
-	velocity.y -= fall_acceleration * delta # Gravity
+#	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
 
 func set_selected(value) -> void:
