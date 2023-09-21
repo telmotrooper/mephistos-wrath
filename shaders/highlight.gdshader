@@ -1,7 +1,8 @@
 shader_type spatial;
+uniform vec3 tint_color: source_color;
 uniform float strength;
 
 void fragment() {
-	ALBEDO = vec3(0.8, 1.0, 0.0);
+	ALBEDO = tint_color;
 	ALPHA = strength;
 }
