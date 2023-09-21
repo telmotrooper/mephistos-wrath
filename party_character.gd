@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 			var direction = global_position.direction_to(target_position)	
 			if $knight/AnimationPlayer.current_animation != "Combat Running":
 				$knight/AnimationPlayer.play("Combat Running")
+			$knight.look_at(position - direction, Vector3.UP)
 			velocity = direction * character_speed
 		
 		elif direction_from_wasd != Vector3.ZERO:
