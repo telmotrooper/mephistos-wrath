@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=16 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="2_hyyls"]
 [ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://party_character.tscn" id="2_pi2xq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://b7j3g28hhgggb" path="res://characters/michael_tenorio.tres" id="5_iuud7"]
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="6_3orr4"]
 [ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="7_a1gmk"]
+[ext_resource type="PackedScene" uid="uid://dpxcby3h4ujb8" path="res://enemies/orc/orc.tscn" id="8_8rkv6"]
 
 [sub_resource type="Gradient" id="Gradient_o4fjt"]
 offsets = PackedFloat32Array(0.2, 0.65641)
@@ -90,3 +91,6 @@ size = Vector3(1, 5, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -9)
 use_collision = true
 size = Vector3(5, 7, 5)
+
+[node name="orc" parent="." instance=ExtResource("8_8rkv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01701, 0.5, -5.76051)

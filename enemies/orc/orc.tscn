@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpxcby3h4ujb8"]
+
+[ext_resource type="PackedScene" uid="uid://48lrwigg37y1" path="res://enemies/orc/warrok.blend" id="1_us5ac"]
+[ext_resource type="Script" path="res://enemies/orc/orc.gd" id="1_uywr1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eat60"]
+radius = 0.4
+height = 2.2
+
+[node name="orc" type="CharacterBody3D"]
+script = ExtResource("1_uywr1")
+
+[node name="warrok" parent="." instance=ExtResource("1_us5ac")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("CapsuleShape3D_eat60")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+visible = false
+pixel_size = 0.0006
+billboard = 1
+fixed_size = true
+text = "Orc"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
