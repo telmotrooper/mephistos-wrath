@@ -15,6 +15,7 @@ var action_to_node = {
 
 var select_all := false
 var stop := false
+var last_mouse_position: Vector2
 
 func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	var node = get_node(unique_node_name)
@@ -35,8 +36,11 @@ func _physics_process(_delta: float) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
+			last_mouse_position = get_viewport().get_mouse_position()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			get_viewport().warp_mouse(last_mouse_position)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
