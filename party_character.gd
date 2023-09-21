@@ -16,6 +16,13 @@ var fall_acceleration := 75.0
 func _ready() -> void:
 	$Label3D.text = character.name
 	$knight/AnimationPlayer.play("Combat Idle")
+	
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	
+	# Copy materials to make them unique between instances.
+	for mesh_instance in mesh_instances:
+		var material = mesh_instance.get_active_material(0).duplicate()
+		mesh_instance.set_surface_override_material(0, material)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -71,6 +78,12 @@ func grab_camera() -> void:
 
 func highlight() -> void:
 	$Label3D.show()
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	for mesh_instance in mesh_instances:
+		mesh_instance.get_active_material(0).next_pass = load("res://shaders/highlight.material")
 
 func lowlight() -> void:
 	$Label3D.hide()
+	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	for mesh_instance in mesh_instances:
+		mesh_instance.get_active_material(0).next_pass = null
