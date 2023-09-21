@@ -28,32 +28,51 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		horizontal -= event.relative.x * mouse_sensitivity
 		vertical += event.relative.y * mouse_sensitivity
+	
+	if GameState.active_character == character and Input.is_action_just_pressed("left_mouse_button"):
+		var mouse_position = get_viewport().get_mouse_position()
+		var ray_length = 100
+		var from = %Camera3D.project_ray_origin(mouse_position)
+		var to = from + %Camera3D.project_ray_normal(mouse_position) * ray_length
+		var space = get_world_3d().direct_space_state
+		var ray_query = PhysicsRayQueryParameters3D.new()
+		ray_query.from = from
+		ray_query.to = to
+		var result = space.intersect_ray(ray_query)
+		if len(result):
+			$NavigationAgent3D.set_target_position(result.position)
 
 func _physics_process(delta: float) -> void:
 	vertical = clamp(vertical, -40, 50)
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 
-	var direction = Vector3(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		0,
-		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+	if $NavigationAgent3D.is_navigation_finished():
+		return
+	var target_position = $NavigationAgent3D.get_next_path_position()
+	var direction = global_position.direction_to(target_position)	
+	velocity = direction * character_speed
 
-	var horizontal_rotation = %HorizontalPivot.global_transform.basis.get_euler().y
-	direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
-	
-	if GameState.active_character == character and direction != Vector3.ZERO:
-		if $knight/AnimationPlayer.current_animation != "Combat Running":
-			$knight/AnimationPlayer.play("Combat Running")
-		$knight.look_at(position + direction, Vector3.UP)
-		velocity.x = -direction.x * character_speed
-		velocity.z = -direction.z * character_speed
-	else:
-		if $knight/AnimationPlayer.current_animation != "Combat Idle":
-			$knight/AnimationPlayer.play("Combat Idle")
-		velocity = Vector3.ZERO
-	
-	velocity.y -= fall_acceleration * delta # Gravity
+#	var direction = Vector3(
+#		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+#		0,
+#		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+#
+#	var horizontal_rotation = %HorizontalPivot.global_transform.basis.get_euler().y
+#	direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+#
+#	if GameState.active_character == character and direction != Vector3.ZERO:
+#		if $knight/AnimationPlayer.current_animation != "Combat Running":
+#			$knight/AnimationPlayer.play("Combat Running")
+#		$knight.look_at(position + direction, Vector3.UP)
+#		velocity.x = -direction.x * character_speed
+#		velocity.z = -direction.z * character_speed
+#	else:
+#		if $knight/AnimationPlayer.current_animation != "Combat Idle":
+#			$knight/AnimationPlayer.play("Combat Idle")
+#		velocity = Vector3.ZERO
+#
+#	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
 
 func set_selected(value) -> void:
@@ -61,7 +80,7 @@ func set_selected(value) -> void:
 
 func _on_character_selected() -> void:
 	set_selected(GameState.selected_characters.has(character))
-	if (GameState.active_character == character):
+	if GameState.active_character == character and get_viewport().get_camera_3d() != %Camera3D:
 		grab_camera()
 
 func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
