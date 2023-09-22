@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene load_steps=28 format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_35h45"]
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
@@ -25,6 +25,12 @@
 [ext_resource type="Resource" uid="uid://b6wm3eh3f7ygm" path="res://abilities/generic_4.tres" id="18_dbc2g"]
 [ext_resource type="Resource" uid="uid://drtbspyy5yh13" path="res://abilities/generic_5.tres" id="19_ay7vc"]
 [ext_resource type="Resource" uid="uid://egfdor26t4kp" path="res://abilities/generic_6.tres" id="20_jukx0"]
+
+[sub_resource type="Gradient" id="Gradient_eikfx"]
+colors = PackedColorArray(0.282353, 0.282353, 0.282353, 0.392157, 0.282353, 0.282353, 0.282353, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8bahr"]
+gradient = SubResource("Gradient_eikfx")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -186,31 +192,37 @@ size_flags_vertical = 0
 [node name="CharacterButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Character (C)"
+focus_mode = 0
 texture_normal = ExtResource("16_m0qrx")
 
 [node name="AbilitiesButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Abilities (P)"
+focus_mode = 0
 texture_normal = ExtResource("10_oefr8")
 
 [node name="InventoryButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Inventory (I)"
+focus_mode = 0
 texture_normal = ExtResource("10_sw3dl")
 
 [node name="QuestLogButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Quest Log (L)"
+focus_mode = 0
 texture_normal = ExtResource("11_ptj3u")
 
 [node name="MapButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Map (M)"
+focus_mode = 0
 texture_normal = ExtResource("8_erx31")
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/TopMenu"]
 layout_mode = 2
 tooltip_text = "Settings (Esc)"
+focus_mode = 0
 texture_normal = ExtResource("8_m55xj")
 
 [node name="HiddenAbilities" type="Control" parent="."]
@@ -296,6 +308,39 @@ title = "Map"
 initial_position = 2
 size = Vector2i(400, 400)
 visible = false
+
+[node name="PausedDialog" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 140.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_8bahr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PausedDialog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -21.0
+offset_right = 58.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "PAUSED"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="pressed" from="MarginContainer/Abilities/LockButton" to="MarginContainer/Abilities/LockButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Portraits/Control/HBoxContainer/SelectAllButton" to="." method="_on_select_all_button_pressed"]

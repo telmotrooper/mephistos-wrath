@@ -51,6 +51,7 @@ uv1_scale = Vector3(10, 10, 10)
 [node name="Main" type="Node3D"]
 
 [node name="UI" parent="." instance=ExtResource("7_a1gmk")]
+process_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3lqe7")

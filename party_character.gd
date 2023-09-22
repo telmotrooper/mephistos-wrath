@@ -52,10 +52,12 @@ func _physics_process(delta: float) -> void:
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 
 	if GameState.active_character == character:
-		var direction_from_wasd = Vector3(
-			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-			0,
-			Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
+		var direction_from_wasd = Vector3.ZERO
+		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
+			direction_from_wasd = Vector3(
+				Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+				0,
+				Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
 
 		if navigating:
 			if $NavigationAgent3D.is_navigation_finished() or direction_from_wasd != Vector3.ZERO:

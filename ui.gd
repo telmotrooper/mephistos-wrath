@@ -35,8 +35,9 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("highlight"):
 		get_tree().call_group("highlightable", "highlight")
 	if Input.is_action_just_released("highlight"):
-		print("hey")
 		get_tree().call_group("highlightable", "lowlight")
+	if Input.is_action_just_pressed("pause"):
+		pause()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
@@ -69,7 +70,6 @@ func _draw() -> void:
 			func(node): return box.abs().has_point(get_viewport().get_camera_3d().unproject_position(node.transform.origin))
 		).map(func(node): return node.character)
 
-
 func _on_select_all_button_pressed() -> void:
 	select_all = !select_all
 	if select_all:
@@ -83,3 +83,10 @@ func _on_stop_button_pressed() -> void:
 		%StopButton.icon = load("res://icons/font_awesome/hand.svg")
 	else:
 		%StopButton.icon = load("res://icons/font_awesome/person-walking.svg")
+
+func pause() -> void:
+	get_tree().paused = not get_tree().paused
+	if get_tree().paused:
+		%PausedDialog.show()
+	else:
+		%PausedDialog.hide()
