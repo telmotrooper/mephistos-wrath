@@ -86,3 +86,7 @@ func _on_stop_button_pressed() -> void:
 
 func pause() -> void:
 	get_tree().paused = not get_tree().paused
+	if get_tree().paused:
+		%PausedDialog.show()
+	else:
+		%PausedDialog.hide()
