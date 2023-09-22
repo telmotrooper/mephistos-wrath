@@ -57,43 +57,43 @@ func _physics_process(delta: float) -> void:
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 
+	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
-		var direction_from_wasd = Vector3.ZERO
 		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
 			direction_from_wasd = Vector3(
 				Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 				0,
 				Input.get_action_strength("move_back") - Input.get_action_strength("move_forward"))
 
-		if navigating:
-			if $NavigationAgent3D.is_navigation_finished() or direction_from_wasd != Vector3.ZERO:
-				navigating = false
-				if is_instance_valid(nav_indicator):
-					nav_indicator.queue_free()
-			var target_position = $NavigationAgent3D.get_next_path_position()
-			var direction = global_position.direction_to(target_position)	
+	if navigating:
+		if $NavigationAgent3D.is_navigation_finished() or direction_from_wasd != Vector3.ZERO:
+			navigating = false
+			if is_instance_valid(nav_indicator):
+				nav_indicator.queue_free()
+		var target_position = $NavigationAgent3D.get_next_path_position()
+		var direction = global_position.direction_to(target_position)	
+		if $knight/AnimationPlayer.current_animation != "Combat Running":
+			$knight/AnimationPlayer.play("Combat Running")
+		$knight.look_at(position - direction, Vector3.UP)
+		velocity = direction * character_speed
+	
+	elif direction_from_wasd != Vector3.ZERO:
+		var direction = direction_from_wasd
+
+		var horizontal_rotation = %HorizontalPivot.global_transform.basis.get_euler().y
+		direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
+
+		if GameState.active_character == character and direction != Vector3.ZERO:
 			if $knight/AnimationPlayer.current_animation != "Combat Running":
 				$knight/AnimationPlayer.play("Combat Running")
-			$knight.look_at(position - direction, Vector3.UP)
-			velocity = direction * character_speed
-		
-		elif direction_from_wasd != Vector3.ZERO:
-			var direction = direction_from_wasd
-
-			var horizontal_rotation = %HorizontalPivot.global_transform.basis.get_euler().y
-			direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
-
-			if GameState.active_character == character and direction != Vector3.ZERO:
-				if $knight/AnimationPlayer.current_animation != "Combat Running":
-					$knight/AnimationPlayer.play("Combat Running")
-				$knight.look_at(position + direction, Vector3.UP)
-				velocity.x = -direction.x * character_speed
-				velocity.z = -direction.z * character_speed
-		
-		else:
-			velocity = Vector3.ZERO
-			if $knight/AnimationPlayer.current_animation != "Combat Idle":
-					$knight/AnimationPlayer.play("Combat Idle")
+			$knight.look_at(position + direction, Vector3.UP)
+			velocity.x = -direction.x * character_speed
+			velocity.z = -direction.z * character_speed
+	
+	else:
+		velocity = Vector3.ZERO
+		if $knight/AnimationPlayer.current_animation != "Combat Idle":
+				$knight/AnimationPlayer.play("Combat Idle")
 
 #	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
