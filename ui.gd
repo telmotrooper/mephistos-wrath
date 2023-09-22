@@ -35,7 +35,6 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("highlight"):
 		get_tree().call_group("highlightable", "highlight")
 	if Input.is_action_just_released("highlight"):
-		print("hey")
 		get_tree().call_group("highlightable", "lowlight")
 
 func _gui_input(event: InputEvent) -> void:
