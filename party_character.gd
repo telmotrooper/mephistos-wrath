@@ -15,6 +15,7 @@ var fall_acceleration := 75.0
 
 # State
 var navigating := false
+var nav_indicator: Node3D
 
 func _ready() -> void:
 	$Label3D.text = character.name
@@ -43,7 +44,12 @@ func _input(event: InputEvent) -> void:
 		ray_query.to = to
 		var result = space.intersect_ray(ray_query)
 		if len(result):
+			if is_instance_valid(nav_indicator):
+				nav_indicator.queue_free()
 			$NavigationAgent3D.set_target_position(result.position)
+			nav_indicator = load("res://navigation_indicator.tscn").instantiate()
+			get_parent().add_child(nav_indicator)
+			nav_indicator.global_transform.origin = result.position
 			navigating = true
 
 func _physics_process(delta: float) -> void:
@@ -62,6 +68,8 @@ func _physics_process(delta: float) -> void:
 		if navigating:
 			if $NavigationAgent3D.is_navigation_finished() or direction_from_wasd != Vector3.ZERO:
 				navigating = false
+				if is_instance_valid(nav_indicator):
+					nav_indicator.queue_free()
 			var target_position = $NavigationAgent3D.get_next_path_position()
 			var direction = global_position.direction_to(target_position)	
 			if $knight/AnimationPlayer.current_animation != "Combat Running":
