@@ -16,6 +16,7 @@ var action_to_node = {
 var select_all := false
 var stop := false
 var last_mouse_position: Vector2
+var able_to_grab_mouse := false
 
 func _on_top_menu_button_pressed(unique_node_name: String) -> void:
 	var node = get_node(unique_node_name)
@@ -40,14 +41,18 @@ func _physics_process(_delta: float) -> void:
 		pause()
 
 func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and able_to_grab_mouse and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		last_mouse_position = get_viewport().get_mouse_position()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
-			last_mouse_position = get_viewport().get_mouse_position()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			able_to_grab_mouse = true
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			get_viewport().warp_mouse(last_mouse_position)
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			able_to_grab_mouse = false
+			if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+				get_viewport().warp_mouse(last_mouse_position)
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:

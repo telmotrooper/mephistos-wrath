@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		horizontal -= event.relative.x * mouse_sensitivity
 		vertical += event.relative.y * mouse_sensitivity
 	
-	if GameState.active_character == character and Input.is_action_just_pressed("left_mouse_button"):
+	if GameState.active_character == character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		var mouse_position = get_viewport().get_mouse_position()
 		var ray_length = 100
 		var from = %Camera3D.project_ray_origin(mouse_position)
