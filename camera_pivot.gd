@@ -54,10 +54,11 @@ func grab_camera() -> void:
 	tween.tween_callback(func(): target_camera.make_current())
 
 func navigate() -> void:
+	var target_camera = %Camera3D if zoom < max_zoom else %TacticalCamera
 	var mouse_position = get_viewport().get_mouse_position()
 	var ray_length = 100
-	var from = %Camera3D.project_ray_origin(mouse_position)
-	var to = from + %Camera3D.project_ray_normal(mouse_position) * ray_length
+	var from = target_camera.project_ray_origin(mouse_position)
+	var to = from + target_camera.project_ray_normal(mouse_position) * ray_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.set_collision_mask(0b010) # Only collide with layer 2 (floor).
