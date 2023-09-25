@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://characters/character.gd" id="1_o7gli"]
 [ext_resource type="Resource" uid="uid://b2ueitdqi0f2e" path="res://classes/rogue.tres" id="2_14vhf"]
 [ext_resource type="Texture2D" uid="uid://djt16ctf14bd4" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/21.png" id="2_tdqy7"]
-[ext_resource type="PackedScene" uid="uid://da7lceiy3x1wu" path="res://animations/rogue_brown/rogue_brown.blend" id="3_be8le"]
+[ext_resource type="PackedScene" uid="uid://da7lceiy3x1wu" path="res://animations/rogue_brown/rogue_brown.blend" id="3_dos1s"]
 
 [resource]
 script = ExtResource("1_o7gli")
 name = &"Marty Badger"
 picture = ExtResource("2_tdqy7")
-model = ExtResource("3_be8le")
+model = ExtResource("3_dos1s")
 max_hp = 200
 hp = 150
 max_mp = 80
