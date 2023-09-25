@@ -22,16 +22,19 @@ func _input(event: InputEvent) -> void:
 		horizontal -= event.relative.x * mouse_sensitivity
 		if get_viewport().get_camera_3d().name == "CharacterCamera":
 			vertical += event.relative.y * mouse_sensitivity
+	
 	elif event.is_action_pressed("zoom_in"):
 		if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character:
 			grab_camera(%CharacterCamera)
 		elif zoom > min_zoom:
 			zoom -= ZOOM_STEP
+	
 	elif event.is_action_pressed("zoom_out"):
 		if zoom < max_zoom:
 			zoom += ZOOM_STEP
 		elif GameState.active_character == $"..".character:
 			grab_camera(%TacticalCamera)
+	
 	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		navigate()
 
