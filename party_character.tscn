@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqttuytu4q3wa"]
 
 [ext_resource type="Script" path="res://party_character.gd" id="1_adfag"]
-[ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/knight.blend" id="2_8ryni"]
+[ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/warrior.blend" id="2_8ryni"]
 [ext_resource type="Texture2D" uid="uid://bsrvwdx7p2w7b" path="res://icons/selected-character.svg" id="3_7fr1h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xl1hp"]
@@ -11,7 +11,7 @@ height = 1.7
 [node name="PartyCharacter" type="CharacterBody3D" groups=["highlightable", "party_characters"]]
 script = ExtResource("1_adfag")
 
-[node name="knight" parent="." instance=ExtResource("2_8ryni")]
+[node name="warrior" parent="." instance=ExtResource("2_8ryni")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)

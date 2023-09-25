@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cepon7tc5ad8h"
-path="res://.godot/imported/knight.blend-6b69396ffff7cf2b8524973806838ace.scn"
+path="res://.godot/imported/warrior.blend-381d8d53b1b01901d4b657e72636e555.scn"
 
 [deps]
 
-source_file="res://animations/knight.blend"
-dest_files=["res://.godot/imported/knight.blend-6b69396ffff7cf2b8524973806838ace.scn"]
+source_file="res://animations/warrior.blend"
+dest_files=["res://.godot/imported/warrior.blend-381d8d53b1b01901d4b657e72636e555.scn"]
 
 [params]
 
