@@ -42,11 +42,13 @@ func _physics_process(_delta: float) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and able_to_grab_mouse and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
-		last_mouse_position = get_viewport().get_mouse_position()
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		var mouse_distance = last_mouse_position.distance_squared_to(get_viewport().get_mouse_position())
+		if mouse_distance > 1500:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
 			able_to_grab_mouse = true
+			last_mouse_position = get_viewport().get_mouse_position()
 		else:
 			able_to_grab_mouse = false
 			if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
