@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://b7j3g28hhgggb"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://b7j3g28hhgggb"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_2papk"]
 [ext_resource type="Resource" uid="uid://drtbspyy5yh13" path="res://abilities/generic_5.tres" id="1_rs40i"]
 [ext_resource type="Texture2D" uid="uid://bvhlj1jj0xcku" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/28.png" id="2_2pc51"]
 [ext_resource type="Resource" uid="uid://b2ueitdqi0f2e" path="res://classes/rogue.tres" id="2_d4wwj"]
+[ext_resource type="PackedScene" uid="uid://cx770r23dc1qp" path="res://animations/rogue/rogue.blend" id="3_xdrxj"]
 
 [resource]
 script = ExtResource("1_2papk")
 name = &"Michael Tenorio"
 picture = ExtResource("2_2pc51")
+model = ExtResource("3_xdrxj")
 max_hp = 100
 hp = 10
 max_mp = 60

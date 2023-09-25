@@ -17,11 +17,22 @@ var fall_acceleration := 75.0
 var navigating := false
 var nav_indicator: Node3D
 
+var model: Node3D
+var animation_player: AnimationPlayer
+var skeleton_3d: Skeleton3D
+
 func _ready() -> void:
 	$Label3D.text = character.name
-	$knight/AnimationPlayer.play("Combat Idle")
 	
-	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	$Model.queue_free()
+	model = character.model.instantiate()
+	add_child(model)
+	
+	animation_player = model.find_child("AnimationPlayer")
+	animation_player.play("Combat Idle")
+	
+	skeleton_3d = model.find_child("Skeleton3D")
+	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
 	
 	# Copy materials to make them unique between instances.
 	for mesh_instance in mesh_instances:
@@ -72,9 +83,9 @@ func _physics_process(delta: float) -> void:
 				nav_indicator.queue_free()
 		var target_position = $NavigationAgent3D.get_next_path_position()
 		var direction = global_position.direction_to(target_position)	
-		if $knight/AnimationPlayer.current_animation != "Combat Running":
-			$knight/AnimationPlayer.play("Combat Running")
-		$knight.look_at(position - direction, Vector3.UP)
+		if animation_player.current_animation != "Combat Running":
+			animation_player.play("Combat Running")
+		model.look_at(position - direction, Vector3.UP)
 		velocity = direction * character_speed
 	
 	elif direction_from_wasd != Vector3.ZERO:
@@ -84,16 +95,16 @@ func _physics_process(delta: float) -> void:
 		direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
 		if GameState.active_character == character and direction != Vector3.ZERO:
-			if $knight/AnimationPlayer.current_animation != "Combat Running":
-				$knight/AnimationPlayer.play("Combat Running")
-			$knight.look_at(position + direction, Vector3.UP)
+			if animation_player.current_animation != "Combat Running":
+				animation_player.play("Combat Running")
+			model.look_at(position + direction, Vector3.UP)
 			velocity.x = -direction.x * character_speed
 			velocity.z = -direction.z * character_speed
 	
 	else:
 		velocity = Vector3.ZERO
-		if $knight/AnimationPlayer.current_animation != "Combat Idle":
-				$knight/AnimationPlayer.play("Combat Idle")
+		if animation_player.current_animation != "Combat Idle":
+				animation_player.play("Combat Idle")
 
 #	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
@@ -120,12 +131,12 @@ func grab_camera() -> void:
 
 func highlight() -> void:
 	$Label3D.show()
-	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
 	for mesh_instance in mesh_instances:
 		mesh_instance.get_active_material(0).next_pass = load("res://shaders/highlight.material")
 
 func lowlight() -> void:
 	$Label3D.hide()
-	var mesh_instances = $knight/Armature/Skeleton3D.get_children() as Array[MeshInstance3D]
+	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
 	for mesh_instance in mesh_instances:
 		mesh_instance.get_active_material(0).next_pass = null
