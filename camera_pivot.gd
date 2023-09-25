@@ -21,11 +21,16 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		horizontal -= event.relative.x * mouse_sensitivity
 		vertical += event.relative.y * mouse_sensitivity
-	elif event.is_action_pressed("zoom_in") and zoom > min_zoom:
-		zoom -= ZOOM_STEP
-	elif event.is_action_pressed("zoom_out") and zoom < max_zoom:
-		zoom += ZOOM_STEP
-	
+	elif event.is_action_pressed("zoom_in"):
+		if get_viewport().get_camera_3d() == %TacticalCamera:
+			%Camera3D.make_current()
+		elif zoom > min_zoom:
+			zoom -= ZOOM_STEP
+	elif event.is_action_pressed("zoom_out"):
+		if zoom < max_zoom:
+			zoom += ZOOM_STEP
+		else:
+			%TacticalCamera.make_current()
 	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		navigate()
 
@@ -40,7 +45,7 @@ func grab_camera() -> void:
 	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
 	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
 	GameState.transition_camera.make_current()
-	
+
 	var tween = create_tween()
 	tween.tween_property(GameState.transition_camera, "global_transform:origin", %Camera3D.global_transform.origin, 0.25)
 	tween.tween_callback(func(): %Camera3D.make_current())
