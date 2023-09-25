@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dieqy80h0hivh" path="res://icons/navigation-indicator.svg" id="1_0b30v"]
 
 [node name="NavigationIndicator" type="Node3D"]
+top_level = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 visible = false

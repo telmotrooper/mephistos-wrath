@@ -8,7 +8,6 @@ var fall_acceleration := 75.0
 
 # State
 var navigating := false
-var nav_indicator: Node3D
 
 var model: Node3D
 var animation_player: AnimationPlayer
@@ -32,27 +31,6 @@ func _ready() -> void:
 		var material = mesh_instance.get_active_material(0).duplicate()
 		mesh_instance.set_surface_override_material(0, material)
 
-func _input(_event: InputEvent) -> void:	
-	if GameState.active_character == character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
-		var mouse_position = get_viewport().get_mouse_position()
-		var ray_length = 100
-		var from = %Camera3D.project_ray_origin(mouse_position)
-		var to = from + %Camera3D.project_ray_normal(mouse_position) * ray_length
-		var space = get_world_3d().direct_space_state
-		var ray_query = PhysicsRayQueryParameters3D.new()
-		ray_query.set_collision_mask(0b010) # Only collide with layer 2 (floor).
-		ray_query.from = from
-		ray_query.to = to
-		var result = space.intersect_ray(ray_query)
-		if len(result):
-			if is_instance_valid(nav_indicator):
-				nav_indicator.queue_free()
-			$NavigationAgent3D.set_target_position(result.position)
-			nav_indicator = load("res://navigation_indicator.tscn").instantiate()
-			get_parent().add_child(nav_indicator)
-			nav_indicator.global_transform.origin = result.position
-			navigating = true
-
 func _physics_process(_delta: float) -> void:
 	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
@@ -65,8 +43,8 @@ func _physics_process(_delta: float) -> void:
 	if navigating:
 		if $NavigationAgent3D.is_navigation_finished() or direction_from_wasd != Vector3.ZERO:
 			navigating = false
-			if is_instance_valid(nav_indicator):
-				nav_indicator.queue_free()
+			if is_instance_valid($CameraPivot.nav_indicator):
+				$CameraPivot.nav_indicator.queue_free()
 		var target_position = $NavigationAgent3D.get_next_path_position()
 		var direction = global_position.direction_to(target_position)	
 		if animation_player.current_animation != "Combat Running":
