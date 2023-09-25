@@ -32,7 +32,7 @@ func _ready() -> void:
 		var material = mesh_instance.get_active_material(0).duplicate()
 		mesh_instance.set_surface_override_material(0, material)
 
-func _input(event: InputEvent) -> void:	
+func _input(_event: InputEvent) -> void:	
 	if GameState.active_character == character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		var mouse_position = get_viewport().get_mouse_position()
 		var ray_length = 100
@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 			nav_indicator.global_transform.origin = result.position
 			navigating = true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
 		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
