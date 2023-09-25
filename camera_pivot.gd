@@ -22,15 +22,15 @@ func _input(event: InputEvent) -> void:
 		horizontal -= event.relative.x * mouse_sensitivity
 		vertical += event.relative.y * mouse_sensitivity
 	elif event.is_action_pressed("zoom_in"):
-		if get_viewport().get_camera_3d() == %TacticalCamera:
-			%Camera3D.make_current()
+		if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character:
+			grab_camera(%Camera3D)
 		elif zoom > min_zoom:
 			zoom -= ZOOM_STEP
 	elif event.is_action_pressed("zoom_out"):
 		if zoom < max_zoom:
 			zoom += ZOOM_STEP
 		elif GameState.active_character == $"..".character:
-			%TacticalCamera.make_current()
+			grab_camera(%TacticalCamera)
 	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		navigate()
 
@@ -41,16 +41,20 @@ func _physics_process(delta: float) -> void:
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 
-func grab_camera() -> void:
+func grab_camera(target_camera: Camera3D = null) -> void:
 	var existing_camera = get_viewport().get_camera_3d()
 	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
 	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
 	GameState.transition_camera.make_current()
 
-	var target_camera = %Camera3D if zoom < max_zoom else %TacticalCamera
-
+	if not target_camera:
+		target_camera = %Camera3D if zoom < max_zoom else %TacticalCamera
+		
 	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(GameState.transition_camera, "rotation_degrees:x", target_camera.rotation_degrees.x, 0.25)
 	tween.tween_property(GameState.transition_camera, "global_transform:origin", target_camera.global_transform.origin, 0.25)
+	tween.set_parallel(false)
 	tween.tween_callback(func(): target_camera.make_current())
 
 func navigate() -> void:
