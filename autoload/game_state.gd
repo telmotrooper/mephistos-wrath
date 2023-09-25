@@ -6,6 +6,8 @@ var ability_bar_locked := false
 var selected_characters: Array[Character] = []
 var active_character: Character
 
+@onready var transition_camera := $TransitionCamera
+
 func select_characters(active, selected) -> void:
 	if active != null:
 		GameState.active_character = active

@@ -2,13 +2,6 @@ extends CharacterBody3D
 
 @export var character: Character
 
-# Camera
-var mouse_sensitivity := 0.5
-var horizontal := 0.0
-var vertical := 0.0
-var h_acceleration := 10.0
-var v_acceleration := 10.0
-
 # Character
 var character_speed := 8.0
 var fall_acceleration := 75.0
@@ -39,11 +32,7 @@ func _ready() -> void:
 		var material = mesh_instance.get_active_material(0).duplicate()
 		mesh_instance.set_surface_override_material(0, material)
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		horizontal -= event.relative.x * mouse_sensitivity
-		vertical += event.relative.y * mouse_sensitivity
-	
+func _input(_event: InputEvent) -> void:	
 	if GameState.active_character == character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		var mouse_position = get_viewport().get_mouse_position()
 		var ray_length = 100
@@ -64,11 +53,7 @@ func _input(event: InputEvent) -> void:
 			nav_indicator.global_transform.origin = result.position
 			navigating = true
 
-func _physics_process(delta: float) -> void:
-	vertical = clamp(vertical, -40, 50)
-	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
-	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
-
+func _physics_process(_delta: float) -> void:
 	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
 		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
@@ -116,19 +101,11 @@ func set_selected(value) -> void:
 func _on_character_selected() -> void:
 	set_selected(GameState.selected_characters.has(character))
 	if GameState.active_character == character and get_viewport().get_camera_3d() != %Camera3D:
-		grab_camera()
+		$CameraPivot.grab_camera()
 
 func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
-
-func grab_camera() -> void:
-	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
-	var camera_position = %Camera3D.global_transform.origin
-	%Camera3D.global_transform.origin = existing_camera_position
-	%Camera3D.make_current()
-	var tween = create_tween()
-	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
 
 func highlight() -> void:
 	$Label3D.show()
