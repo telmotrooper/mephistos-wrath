@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	vertical = clamp(vertical, -40, 50)
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
+	%TacticalCameraPivot.rotation_degrees.y = lerp(%TacticalCameraPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 

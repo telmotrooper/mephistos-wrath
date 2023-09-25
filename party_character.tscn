@@ -60,9 +60,12 @@ current = true
 unique_name_in_owner = true
 path_desired_distance = 0.1
 
-[node name="TacticalCamera" type="Camera3D" parent="."]
+[node name="TacticalCameraPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 7.57103e-08, -4.37114e-08, 0, 0.5, 0.866025, 8.74228e-08, 0.866025, -0.5, 0, 9, -5)
+
+[node name="TacticalCamera" type="Camera3D" parent="TacticalCameraPivot"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 7.57104e-08, -4.37114e-08, 0, 0.5, 0.866025, 8.74228e-08, 0.866025, -0.5, 0, 9, -5)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="highlight"]
