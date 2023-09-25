@@ -9,6 +9,7 @@ radius = 0.25
 height = 1.7
 
 [node name="PartyCharacter" type="CharacterBody3D" groups=["highlightable", "party_characters"]]
+collision_mask = 7
 script = ExtResource("1_adfag")
 
 [node name="Model" parent="." instance=ExtResource("2_8ryni")]

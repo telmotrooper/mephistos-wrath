@@ -51,6 +51,7 @@ func _input(event: InputEvent) -> void:
 		var to = from + %Camera3D.project_ray_normal(mouse_position) * ray_length
 		var space = get_world_3d().direct_space_state
 		var ray_query = PhysicsRayQueryParameters3D.new()
+		ray_query.set_collision_mask(0b010) # Only collide with layer 2 (floor).
 		ray_query.from = from
 		ray_query.to = to
 		var result = space.intersect_ray(ray_query)
