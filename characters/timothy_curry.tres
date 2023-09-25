@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://fjov23yxdht3"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://fjov23yxdht3"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_1cfat"]
 [ext_resource type="Resource" uid="uid://egfdor26t4kp" path="res://abilities/generic_6.tres" id="1_p5xpy"]
 [ext_resource type="Texture2D" uid="uid://dggl4opswi8w" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/19.png" id="2_c1hch"]
 [ext_resource type="Resource" uid="uid://xymf02hqi705" path="res://classes/warrior.tres" id="2_huk5p"]
+[ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/warrior.blend" id="3_s0t6n"]
 
 [resource]
 script = ExtResource("1_1cfat")
 name = &"Timothy Curry"
 picture = ExtResource("2_c1hch")
+model = ExtResource("3_s0t6n")
 max_hp = 80
 hp = 80
 max_mp = 220
