@@ -65,8 +65,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func update_character_abilities() -> void:
 	var empty_array: Array[Ability] = []
-	GameState.selected_characters[0].character.ability_bar = empty_array
+	GameState.selected_characters[0].ability_bar = empty_array
 
 	for child in get_parent().get_children():
 		if child.name != "LockButton":
-			GameState.selected_characters[0].character.ability_bar.append(child.ability)
+			GameState.selected_characters[0].ability_bar.append(child.ability)
