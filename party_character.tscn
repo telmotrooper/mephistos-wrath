@@ -34,6 +34,7 @@ fixed_size = true
 text = "Character Name"
 
 [node name="CameraPivot" type="Node3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("4_pg6on")
 
