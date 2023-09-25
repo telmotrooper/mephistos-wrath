@@ -31,9 +31,11 @@ func _physics_process(delta: float) -> void:
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 
 func grab_camera() -> void:
-	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
-	var camera_position = %Camera3D.global_transform.origin
-	%Camera3D.global_transform.origin = existing_camera_position
-	%Camera3D.make_current()
+	var existing_camera = get_viewport().get_camera_3d()
+	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
+	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
+	GameState.transition_camera.make_current()
+	
 	var tween = create_tween()
-	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
+	tween.tween_property(GameState.transition_camera, "global_transform:origin", %Camera3D.global_transform.origin, 0.25)
+	tween.tween_callback(func(): %Camera3D.make_current())
