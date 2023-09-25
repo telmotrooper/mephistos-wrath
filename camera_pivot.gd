@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("zoom_out"):
 		if zoom < max_zoom:
 			zoom += ZOOM_STEP
-		elif GameState.active_character == $"..".character:
+		elif GameState.active_character == $"..".character and get_viewport().get_camera_3d() != %TacticalCamera:
 			grab_camera(%TacticalCamera)
 	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		navigate()
