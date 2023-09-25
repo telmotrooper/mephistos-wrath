@@ -29,3 +29,11 @@ func _physics_process(delta: float) -> void:
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
+
+func grab_camera() -> void:
+	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
+	var camera_position = %Camera3D.global_transform.origin
+	%Camera3D.global_transform.origin = existing_camera_position
+	%Camera3D.make_current()
+	var tween = create_tween()
+	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)

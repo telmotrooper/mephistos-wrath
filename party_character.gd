@@ -101,19 +101,11 @@ func set_selected(value) -> void:
 func _on_character_selected() -> void:
 	set_selected(GameState.selected_characters.has(character))
 	if GameState.active_character == character and get_viewport().get_camera_3d() != %Camera3D:
-		grab_camera()
+		$CameraPivot.grab_camera()
 
 func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		GameState.select_characters(character, [character])
-
-func grab_camera() -> void:
-	var existing_camera_position = get_viewport().get_camera_3d().global_transform.origin
-	var camera_position = %Camera3D.global_transform.origin
-	%Camera3D.global_transform.origin = existing_camera_position
-	%Camera3D.make_current()
-	var tween = create_tween()
-	tween.tween_property(%Camera3D, "global_transform:origin", camera_position, 0.25)
 
 func highlight() -> void:
 	$Label3D.show()
