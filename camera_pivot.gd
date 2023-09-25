@@ -51,10 +51,7 @@ func grab_camera(target_camera: Camera3D = null) -> void:
 		target_camera = %Camera3D if zoom < max_zoom else %TacticalCamera
 		
 	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(GameState.transition_camera, "rotation_degrees:x", target_camera.rotation_degrees.x, 0.25)
-	tween.tween_property(GameState.transition_camera, "global_transform:origin", target_camera.global_transform.origin, 0.25)
-	tween.set_parallel(false)
+	tween.tween_property(GameState.transition_camera, "global_transform", target_camera.global_transform, 0.25)
 	tween.tween_callback(func(): target_camera.make_current())
 
 func navigate() -> void:
