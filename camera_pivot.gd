@@ -18,9 +18,10 @@ func _ready() -> void:
 	zoom = %SpringArm3D.spring_length
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and get_viewport().get_camera_3d().name == "CharacterCamera":
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		horizontal -= event.relative.x * mouse_sensitivity
-		vertical += event.relative.y * mouse_sensitivity
+		if get_viewport().get_camera_3d().name == "CharacterCamera":
+			vertical += event.relative.y * mouse_sensitivity
 	elif event.is_action_pressed("zoom_in"):
 		if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character:
 			grab_camera(%CharacterCamera)
