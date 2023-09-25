@@ -2,13 +2,6 @@ extends CharacterBody3D
 
 @export var character: Character
 
-# Camera
-var mouse_sensitivity := 0.5
-var horizontal := 0.0
-var vertical := 0.0
-var h_acceleration := 10.0
-var v_acceleration := 10.0
-
 # Character
 var character_speed := 8.0
 var fall_acceleration := 75.0
@@ -39,11 +32,7 @@ func _ready() -> void:
 		var material = mesh_instance.get_active_material(0).duplicate()
 		mesh_instance.set_surface_override_material(0, material)
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		horizontal -= event.relative.x * mouse_sensitivity
-		vertical += event.relative.y * mouse_sensitivity
-	
+func _input(event: InputEvent) -> void:	
 	if GameState.active_character == character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		var mouse_position = get_viewport().get_mouse_position()
 		var ray_length = 100
@@ -65,10 +54,6 @@ func _input(event: InputEvent) -> void:
 			navigating = true
 
 func _physics_process(delta: float) -> void:
-	vertical = clamp(vertical, -40, 50)
-	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
-	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
-
 	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
 		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
