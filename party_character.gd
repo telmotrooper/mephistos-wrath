@@ -78,7 +78,7 @@ func set_selected(value) -> void:
 
 func _on_character_selected() -> void:
 	set_selected(GameState.selected_characters.has(character))
-	if GameState.active_character == character and get_viewport().get_camera_3d() != %CharacterCamera:
+	if GameState.active_character == character:
 		$CameraPivot.grab_camera()
 
 func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
