@@ -20,36 +20,57 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		horizontal -= event.relative.x * mouse_sensitivity
-		vertical += event.relative.y * mouse_sensitivity
-	elif event.is_action_pressed("zoom_in") and zoom > min_zoom:
-		zoom -= ZOOM_STEP
-	elif event.is_action_pressed("zoom_out") and zoom < max_zoom:
-		zoom += ZOOM_STEP
+		if get_viewport().get_camera_3d().name == "CharacterCamera":
+			vertical += event.relative.y * mouse_sensitivity
 	
-	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
-		navigate()
+	if GameState.active_character == $"..".character:
+		if get_viewport().get_camera_3d() == %TacticalCamera and event.is_action_pressed("zoom_in"):
+			grab_camera(%CharacterCamera)
+		elif Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			navigate()
+	
+	if get_viewport().get_camera_3d().name == "CharacterCamera":
+		if event.is_action_pressed("zoom_in") and zoom > min_zoom:
+			zoom -= ZOOM_STEP
+		
+		elif event.is_action_pressed("zoom_out"):
+			if zoom < max_zoom:
+				zoom += ZOOM_STEP
+			elif GameState.active_character == $"..".character:
+				grab_camera(%TacticalCamera)
 
 func _physics_process(delta: float) -> void:
 	vertical = clamp(vertical, -40, 50)
 	%HorizontalPivot.rotation_degrees.y = lerp(%HorizontalPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%VerticalPivot.rotation_degrees.x = lerp(%VerticalPivot.rotation_degrees.x, vertical, delta * v_acceleration)
+	%TacticalCameraPivot.rotation_degrees.y = lerp(%TacticalCameraPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 
-func grab_camera() -> void:
+func grab_camera(target_camera: Camera3D = null) -> void:
+	if target_camera:
+		GameState.camera_mode = target_camera.name
+	
 	var existing_camera = get_viewport().get_camera_3d()
+	if existing_camera == target_camera:
+		return
+	
 	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
 	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
 	GameState.transition_camera.make_current()
-	
+
+	if not target_camera:
+		target_camera = %CharacterCamera if GameState.camera_mode == "CharacterCamera" else %TacticalCamera
+		
 	var tween = create_tween()
-	tween.tween_property(GameState.transition_camera, "global_transform:origin", %Camera3D.global_transform.origin, 0.25)
-	tween.tween_callback(func(): %Camera3D.make_current())
+	tween.tween_property(GameState.transition_camera, "global_transform", target_camera.global_transform, 0.25)
+	tween.tween_callback(func(): target_camera.make_current())
 
 func navigate() -> void:
+	var target_camera = %CharacterCamera if zoom < max_zoom else %TacticalCamera
 	var mouse_position = get_viewport().get_mouse_position()
 	var ray_length = 100
-	var from = %Camera3D.project_ray_origin(mouse_position)
-	var to = from + %Camera3D.project_ray_normal(mouse_position) * ray_length
+	var from = target_camera.project_ray_origin(mouse_position)
+	var to = from + target_camera.project_ray_normal(mouse_position) * ray_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.set_collision_mask(0b010) # Only collide with layer 2 (floor).
