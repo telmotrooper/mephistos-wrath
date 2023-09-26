@@ -7,6 +7,7 @@ var selected_characters: Array[Character] = []
 var active_character: Character
 
 @onready var transition_camera := $TransitionCamera
+var camera_mode := "CharacterCamera" # "CharacterCamera" or "TacticalCamera"
 
 func select_characters(active, selected) -> void:
 	if active != null:

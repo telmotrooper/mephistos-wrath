@@ -23,17 +23,18 @@ func _input(event: InputEvent) -> void:
 		if get_viewport().get_camera_3d().name == "CharacterCamera":
 			vertical += event.relative.y * mouse_sensitivity
 	
-	elif event.is_action_pressed("zoom_in"):
-		if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character:
-			grab_camera(%CharacterCamera)
-		elif zoom > min_zoom:
-			zoom -= ZOOM_STEP
+	if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character and event.is_action_pressed("zoom_in"):
+		grab_camera(%CharacterCamera)
 	
-	elif event.is_action_pressed("zoom_out"):
-		if zoom < max_zoom:
-			zoom += ZOOM_STEP
-		elif GameState.active_character == $"..".character:
-			grab_camera(%TacticalCamera)
+	if get_viewport().get_camera_3d().name == "CharacterCamera":
+		if event.is_action_pressed("zoom_in") and zoom > min_zoom:
+			zoom -= ZOOM_STEP
+		
+		elif event.is_action_pressed("zoom_out"):
+			if zoom < max_zoom:
+				zoom += ZOOM_STEP
+			elif GameState.active_character == $"..".character:
+				grab_camera(%TacticalCamera)
 	
 	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		navigate()
@@ -46,15 +47,19 @@ func _physics_process(delta: float) -> void:
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 
 func grab_camera(target_camera: Camera3D = null) -> void:
-	if get_viewport().get_camera_3d() == target_camera:
-		return
+	if target_camera:
+		GameState.camera_mode = target_camera.name
+	
 	var existing_camera = get_viewport().get_camera_3d()
+	if existing_camera == target_camera:
+		return
+	
 	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
 	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
 	GameState.transition_camera.make_current()
 
 	if not target_camera:
-		target_camera = %CharacterCamera if zoom < max_zoom else %TacticalCamera
+		target_camera = %CharacterCamera if GameState.camera_mode == "CharacterCamera" else %TacticalCamera
 		
 	var tween = create_tween()
 	tween.tween_property(GameState.transition_camera, "global_transform", target_camera.global_transform, 0.25)
