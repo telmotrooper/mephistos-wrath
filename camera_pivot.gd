@@ -23,8 +23,11 @@ func _input(event: InputEvent) -> void:
 		if get_viewport().get_camera_3d().name == "CharacterCamera":
 			vertical += event.relative.y * mouse_sensitivity
 	
-	if get_viewport().get_camera_3d() == %TacticalCamera and GameState.active_character == $"..".character and event.is_action_pressed("zoom_in"):
-		grab_camera(%CharacterCamera)
+	if GameState.active_character == $"..".character:
+		if get_viewport().get_camera_3d() == %TacticalCamera and event.is_action_pressed("zoom_in"):
+			grab_camera(%CharacterCamera)
+		elif Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			navigate()
 	
 	if get_viewport().get_camera_3d().name == "CharacterCamera":
 		if event.is_action_pressed("zoom_in") and zoom > min_zoom:
@@ -35,9 +38,6 @@ func _input(event: InputEvent) -> void:
 				zoom += ZOOM_STEP
 			elif GameState.active_character == $"..".character:
 				grab_camera(%TacticalCamera)
-	
-	if GameState.active_character == $"..".character and Input.is_action_just_released("right_mouse_button") and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
-		navigate()
 
 func _physics_process(delta: float) -> void:
 	vertical = clamp(vertical, -40, 50)
