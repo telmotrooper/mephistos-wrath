@@ -31,7 +31,7 @@ func _ready() -> void:
 		var material = mesh_instance.get_active_material(0).duplicate()
 		mesh_instance.set_surface_override_material(0, material)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction_from_wasd = Vector3.ZERO
 	if GameState.active_character == character:
 		if not Input.is_action_pressed("ctrl"): # Ctrl is used for hotkeys, ignore WASD when it's pressed.
@@ -70,7 +70,7 @@ func _physics_process(_delta: float) -> void:
 		if animation_player.current_animation != "Combat Idle":
 				animation_player.play("Combat Idle")
 
-#	velocity.y -= fall_acceleration * delta # Gravity
+	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
 
 func set_selected(value) -> void:
