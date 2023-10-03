@@ -109,6 +109,6 @@ func lowlight() -> void:
 	for mesh_instance in mesh_instances:
 		mesh_instance.get_active_material(0).next_pass = null
 
-func _on_camera_pivot_enemy_targeted(_enemy: Node) -> void:
-#	model.look_at(enemy.global_transform.origin, Vector3.UP)
+func _on_camera_pivot_enemy_targeted(enemy: Node) -> void:
+	model.look_at(enemy.global_transform.origin, Vector3.UP, true)
 	attacking = true
