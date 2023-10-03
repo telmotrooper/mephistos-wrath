@@ -10,8 +10,10 @@ var fall_acceleration := 75.0
 var navigating := false
 
 var model: Node3D
-var animation_player: AnimationPlayer
 var skeleton_3d: Skeleton3D
+var attacking := false
+
+@onready var animation_tree := $AnimationTree
 
 func _ready() -> void:
 	$Label3D.text = character.name
@@ -20,8 +22,10 @@ func _ready() -> void:
 	model = character.model.instantiate()
 	add_child(model)
 	
-	animation_player = model.find_child("AnimationPlayer")
-	animation_player.play("Combat Idle")
+	var animation_player = model.find_child("AnimationPlayer")
+	
+	animation_tree.anim_player = animation_player.get_path()
+	animation_tree.set_active(true)
 	
 	skeleton_3d = model.find_child("Skeleton3D")
 	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
@@ -47,8 +51,6 @@ func _physics_process(_delta: float) -> void:
 				$CameraPivot.nav_indicator.queue_free()
 		var target_position = $NavigationAgent3D.get_next_path_position()
 		var direction = global_position.direction_to(target_position)	
-		if animation_player.current_animation != "Combat Running":
-			animation_player.play("Combat Running")
 		model.look_at(position - direction, Vector3.UP)
 		velocity = direction * character_speed
 	
@@ -59,19 +61,29 @@ func _physics_process(_delta: float) -> void:
 		direction = direction.rotated(Vector3.UP, horizontal_rotation).normalized()
 
 		if GameState.active_character == character and direction != Vector3.ZERO:
-			if animation_player.current_animation != "Combat Running":
-				animation_player.play("Combat Running")
 			model.look_at(position + direction, Vector3.UP)
 			velocity.x = -direction.x * character_speed
 			velocity.z = -direction.z * character_speed
-	
+			
 	else:
 		velocity = Vector3.ZERO
-		if animation_player.current_animation != "Combat Idle":
-				animation_player.play("Combat Idle")
 
 #	velocity.y -= fall_acceleration * delta # Gravity
 	move_and_slide()
+
+func _process(_delta: float) -> void:
+	update_animation_parameters()
+
+func update_animation_parameters() -> void:
+	animation_tree["parameters/conditions/attack"] = true if attacking else false
+	
+	if velocity == Vector3.ZERO:
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/run"] = false
+	else:
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/run"] = true
+		attacking = false
 
 func set_selected(value) -> void:
 	$Decal.visible = value
@@ -96,3 +108,7 @@ func lowlight() -> void:
 	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
 	for mesh_instance in mesh_instances:
 		mesh_instance.get_active_material(0).next_pass = null
+
+func _on_camera_pivot_enemy_targeted(_enemy: Node) -> void:
+#	model.look_at(enemy.global_transform.origin, Vector3.UP)
+	attacking = true

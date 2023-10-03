@@ -194,3 +194,7 @@ zoom_out={
 3d_physics/layer_1="Characters"
 3d_physics/layer_2="Floor"
 3d_physics/layer_3="Wall"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"

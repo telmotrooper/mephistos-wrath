@@ -14,6 +14,8 @@ var zoom: float
 
 var nav_indicator: Node3D
 
+signal enemy_targeted
+
 func _ready() -> void:
 	zoom = %SpringArm3D.spring_length
 
@@ -73,15 +75,19 @@ func navigate() -> void:
 	var to = from + target_camera.project_ray_normal(mouse_position) * ray_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.new()
-	ray_query.set_collision_mask(0b010) # Only collide with layer 2 (floor).
+	ray_query.set_collision_mask(0b011) # Only collide with layers 1 (character) and 2 (floor).
 	ray_query.from = from
 	ray_query.to = to
 	var result = space.intersect_ray(ray_query)
 	if len(result):
 		if is_instance_valid(nav_indicator):
 			nav_indicator.queue_free()
-		%NavigationAgent3D.set_target_position(result.position)
-		nav_indicator = load("res://navigation_indicator.tscn").instantiate()
-		get_parent().add_child(nav_indicator)
-		nav_indicator.global_transform.origin = result.position
-		$"..".navigating = true
+		
+		if result.collider.is_in_group("enemies"):
+			emit_signal("enemy_targeted", result.collider)
+		else:
+			%NavigationAgent3D.set_target_position(result.position)
+			nav_indicator = load("res://navigation_indicator.tscn").instantiate()
+			get_parent().add_child(nav_indicator)
+			nav_indicator.global_transform.origin = result.position
+			$"..".navigating = true
