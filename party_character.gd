@@ -11,6 +11,7 @@ var navigating := false
 
 var model: Node3D
 var skeleton_3d: Skeleton3D
+var attacking := false
 
 @onready var animation_tree := $AnimationTree
 
@@ -74,12 +75,15 @@ func _process(_delta: float) -> void:
 	update_animation_parameters()
 
 func update_animation_parameters() -> void:
+	animation_tree["parameters/conditions/attack"] = true if attacking else false
+	
 	if velocity == Vector3.ZERO:
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/run"] = false
 	else:
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/run"] = true
+		attacking = false
 
 func set_selected(value) -> void:
 	$Decal.visible = value
@@ -104,3 +108,7 @@ func lowlight() -> void:
 	var mesh_instances = skeleton_3d.get_children() as Array[MeshInstance3D]
 	for mesh_instance in mesh_instances:
 		mesh_instance.get_active_material(0).next_pass = null
+
+func _on_camera_pivot_enemy_targeted(_enemy: Node) -> void:
+#	model.look_at(enemy.global_transform.origin, Vector3.UP)
+	attacking = true
