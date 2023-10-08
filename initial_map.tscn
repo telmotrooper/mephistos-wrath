@@ -76,7 +76,7 @@ character = ExtResource("5_w4n22")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 2)
 character = ExtResource("6_f7bar")
 
-[node name="orc" parent="." instance=ExtResource("7_1cap0")]
+[node name="Orc" parent="." instance=ExtResource("7_1cap0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01701, 0.5, -5.76051)
 
 [node name="Scenario" type="Node3D" parent="."]
