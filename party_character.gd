@@ -88,10 +88,10 @@ func update_animation_parameters() -> void:
 func set_selected(value) -> void:
 	$Decal.visible = value
 
-func _on_character_selected() -> void:
+func _on_character_selected(skip_camera_animation = false) -> void:
 	set_selected(GameState.selected_characters.has(character))
 	if GameState.active_character == character:
-		$CameraPivot.grab_camera()
+		$CameraPivot.grab_camera(null, skip_camera_animation)
 
 func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
