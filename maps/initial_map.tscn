@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd25m6it6auq0"]
+[gd_scene load_steps=13 format=3 uid="uid://dd25m6it6auq0"]
 
 [ext_resource type="PackedScene" uid="uid://dljd72ox6wihm" path="res://ui.tscn" id="1_petr8"]
+[ext_resource type="Environment" uid="uid://esmdy4xyqje1" path="res://environments/swamp_initial_map.tres" id="2_d4p5p"]
 [ext_resource type="PackedScene" uid="uid://dqttuytu4q3wa" path="res://party_character.tscn" id="2_u5khj"]
 [ext_resource type="Resource" uid="uid://8xr1er6ruqpx" path="res://characters/george_erickson.tres" id="3_caurt"]
 [ext_resource type="Resource" uid="uid://dh0h86uwqa4d8" path="res://characters/marty_badger.tres" id="4_ejipw"]
@@ -8,35 +9,6 @@
 [ext_resource type="Resource" uid="uid://fjov23yxdht3" path="res://characters/timothy_curry.tres" id="6_f7bar"]
 [ext_resource type="PackedScene" uid="uid://dpxcby3h4ujb8" path="res://enemies/orc/orc.tscn" id="7_1cap0"]
 [ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="8_r6hls"]
-
-[sub_resource type="Gradient" id="Gradient_o4fjt"]
-offsets = PackedFloat32Array(0.2, 0.65641)
-colors = PackedColorArray(0.630841, 0.754209, 1, 1, 0, 0.5303, 0.809526, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bum0l"]
-gradient = SubResource("Gradient_o4fjt")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dbo6q"]
-panorama = SubResource("GradientTexture2D_bum0l")
-
-[sub_resource type="Sky" id="Sky_l1ob6"]
-sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
-
-[sub_resource type="Environment" id="Environment_3lqe7"]
-background_mode = 2
-background_energy_multiplier = 1.5
-sky = SubResource("Sky_l1ob6")
-ambient_light_source = 1
-reflected_light_source = 1
-sdfgi_enabled = true
-sdfgi_read_sky_light = false
-sdfgi_energy = 0.5
-fog_density = 0.05
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.09
-adjustment_enabled = true
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_3o2m4"]
 
@@ -54,7 +26,7 @@ uv1_scale = Vector3(10, 10, 10)
 process_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3lqe7")
+environment = ExtResource("2_d4p5p")
 camera_attributes = SubResource("CameraAttributesPhysical_3o2m4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
