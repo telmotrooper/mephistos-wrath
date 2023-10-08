@@ -1,0 +1,30 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://esmdy4xyqje1"]
+
+[sub_resource type="Gradient" id="Gradient_o4fjt"]
+offsets = PackedFloat32Array(0.2, 0.65641)
+colors = PackedColorArray(0.630841, 0.754209, 1, 1, 0, 0.5303, 0.809526, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bum0l"]
+gradient = SubResource("Gradient_o4fjt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dbo6q"]
+panorama = SubResource("GradientTexture2D_bum0l")
+
+[sub_resource type="Sky" id="Sky_l1ob6"]
+sky_material = SubResource("PanoramaSkyMaterial_dbo6q")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_l1ob6")
+ambient_light_source = 1
+reflected_light_source = 1
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_energy = 0.5
+fog_density = 0.05
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.09
+adjustment_enabled = true

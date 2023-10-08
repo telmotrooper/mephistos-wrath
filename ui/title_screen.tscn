@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw3gqifo6166y"]
+
+[ext_resource type="Script" path="res://ui/title_screen.gd" id="1_lvgvh"]
+[ext_resource type="PackedScene" uid="uid://dd25m6it6auq0" path="res://maps/initial_map.tscn" id="2_aqvx7"]
+[ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="3_iuucs"]
+[ext_resource type="Environment" uid="uid://esmdy4xyqje1" path="res://environments/swamp_initial_map.tres" id="3_xklht"]
+[ext_resource type="PackedScene" uid="uid://c05scehdn3ypt" path="res://animations/mage.blend" id="4_sgu1e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6n4j"]
+albedo_texture = ExtResource("3_iuucs")
+uv1_scale = Vector3(3, 3, 3)
+uv1_offset = Vector3(0, 0.18, 0)
+
+[node name="TitleScreen" type="Node"]
+script = ExtResource("1_lvgvh")
+new_game_scene = ExtResource("2_aqvx7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+size_flags_stretch_ratio = 5.1
+theme_override_constants/separation = 10
+
+[node name="NewGameButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "NEW GAME"
+
+[node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+text = "DRAGON AGE DEMO"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.4, -1.5)
+current = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_k6n4j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+environment = ExtResource("3_xklht")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
+
+[node name="mage" parent="Node3D" instance=ExtResource("4_sgu1e")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0.5, -3.2)
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
