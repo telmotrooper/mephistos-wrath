@@ -48,24 +48,27 @@ func _physics_process(delta: float) -> void:
 	%TacticalCameraPivot.rotation_degrees.y = lerp(%TacticalCameraPivot.rotation_degrees.y, horizontal, delta * h_acceleration)
 	%SpringArm3D.spring_length = lerp(%SpringArm3D.spring_length, zoom, delta * cam_acceleration)
 
-func grab_camera(target_camera: Camera3D = null) -> void:
+func grab_camera(target_camera: Camera3D = null, skip_animation = false) -> void:
 	if target_camera:
 		GameState.camera_mode = target_camera.name
 	
 	var existing_camera = get_viewport().get_camera_3d()
 	if existing_camera == target_camera:
 		return
-	
-	GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
-	GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
-	GameState.transition_camera.make_current()
 
 	if not target_camera:
 		target_camera = %CharacterCamera if GameState.camera_mode == "CharacterCamera" else %TacticalCamera
+	
+	if skip_animation:
+		target_camera.make_current()
+	else:
+		GameState.transition_camera.global_transform.origin = existing_camera.global_transform.origin
+		GameState.transition_camera.global_rotation_degrees = existing_camera.global_rotation_degrees
+		GameState.transition_camera.make_current()
 		
-	var tween = create_tween()
-	tween.tween_property(GameState.transition_camera, "global_transform", target_camera.global_transform, 0.25)
-	tween.tween_callback(func(): target_camera.make_current())
+		var tween = create_tween()
+		tween.tween_property(GameState.transition_camera, "global_transform", target_camera.global_transform, 0.25)
+		tween.tween_callback(func(): target_camera.make_current())
 
 func navigate() -> void:
 	var target_camera = %CharacterCamera if zoom < max_zoom else %TacticalCamera
