@@ -7,7 +7,7 @@
 radius = 0.4
 height = 2.2
 
-[node name="orc" type="CharacterBody3D" groups=["enemies", "highlightable"]]
+[node name="Orc" type="CharacterBody3D" groups=["enemies", "highlightable"]]
 script = ExtResource("1_uywr1")
 
 [node name="warrok" parent="." instance=ExtResource("1_us5ac")]

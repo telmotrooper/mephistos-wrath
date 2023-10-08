@@ -12,7 +12,7 @@ func _ready() -> void:
 		GameState.active_character = character
 		GameState.selected_characters = [character]
 		_on_portrait_selected()
-		get_tree().call_group("party_characters", "_on_character_selected")
+		get_tree().call_group("party_characters", "_on_character_selected", [null, true])
 	
 	tooltip_text = "%s (%s)\nHP: %d/%d\nMP: %d/%d" % [
 		character.name, character.character_class.name, character.hp, character.max_hp, character.mp, character.max_mp
