@@ -16,3 +16,6 @@ func select_characters(active, selected) -> void:
 	GameState.selected_characters.assign(selected)
 	get_tree().call_group("character_portraits", "_on_portrait_selected")
 	get_tree().call_group("party_characters", "_on_character_selected")
+
+func _ready() -> void:
+	get_tree().root.content_scale_factor = 2.0

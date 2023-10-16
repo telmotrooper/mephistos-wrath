@@ -5,4 +5,4 @@ func _physics_process(_delta: float) -> void:
 		toggle_fullscreen()
 
 func toggle_fullscreen() -> void:
-		get_window().mode = Window.MODE_FULLSCREEN if get_window().mode != Window.MODE_FULLSCREEN else Window.MODE_WINDOWED
+	get_window().mode = Window.MODE_FULLSCREEN if get_window().mode != Window.MODE_FULLSCREEN else Window.MODE_WINDOWED
