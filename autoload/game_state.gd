@@ -18,4 +18,5 @@ func select_characters(active, selected) -> void:
 	get_tree().call_group("party_characters", "_on_character_selected")
 
 func _ready() -> void:
-	get_tree().root.content_scale_factor = 2.0
+	if DisplayServer.screen_get_size()[0] >= 3840: # 4K resolution and above (might also be higher due to display scaling):
+		get_tree().root.content_scale_factor = 2.0
