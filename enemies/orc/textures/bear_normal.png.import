@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vfuheaj533vi"
 path.s3tc="res://.godot/imported/bear_normal.png-e0731f8079da203917cccabee336ceb9.s3tc.ctex"
+path.etc2="res://.godot/imported/bear_normal.png-e0731f8079da203917cccabee336ceb9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://enemies/orc/textures/bear_normal.png"
-dest_files=["res://.godot/imported/bear_normal.png-e0731f8079da203917cccabee336ceb9.s3tc.ctex"]
+dest_files=["res://.godot/imported/bear_normal.png-e0731f8079da203917cccabee336ceb9.s3tc.ctex", "res://.godot/imported/bear_normal.png-e0731f8079da203917cccabee336ceb9.etc2.ctex"]
 
 [params]
 

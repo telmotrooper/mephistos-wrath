@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhd1qu4dsgiyp"
 path.s3tc="res://.godot/imported/Knight_normal.png-4cf2f6759500f8fb80a8ee05dc520a97.s3tc.ctex"
+path.etc2="res://.godot/imported/Knight_normal.png-4cf2f6759500f8fb80a8ee05dc520a97.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://animations/rogue_brown/textures/Knight_normal.png"
-dest_files=["res://.godot/imported/Knight_normal.png-4cf2f6759500f8fb80a8ee05dc520a97.s3tc.ctex"]
+dest_files=["res://.godot/imported/Knight_normal.png-4cf2f6759500f8fb80a8ee05dc520a97.s3tc.ctex", "res://.godot/imported/Knight_normal.png-4cf2f6759500f8fb80a8ee05dc520a97.etc2.ctex"]
 
 [params]
 

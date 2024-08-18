@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://beja0jd3p1est"
 path.s3tc="res://.godot/imported/Knight_diffuse_brown.png-3dc9965e57de751b06a2ebdb7c8033a9.s3tc.ctex"
+path.etc2="res://.godot/imported/Knight_diffuse_brown.png-3dc9965e57de751b06a2ebdb7c8033a9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://animations/rogue_brown/textures/Knight_diffuse_brown.png"
-dest_files=["res://.godot/imported/Knight_diffuse_brown.png-3dc9965e57de751b06a2ebdb7c8033a9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Knight_diffuse_brown.png-3dc9965e57de751b06a2ebdb7c8033a9.s3tc.ctex", "res://.godot/imported/Knight_diffuse_brown.png-3dc9965e57de751b06a2ebdb7c8033a9.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6m7hi1j7jdhi"
 path.s3tc="res://.godot/imported/4.png-e798e4d8ba0a1ffe88a4b85463d0181c.s3tc.ctex"
+path.etc2="res://.godot/imported/4.png-e798e4d8ba0a1ffe88a4b85463d0181c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://icons/craftpix/free_rpg_warlock_skill_icons/4.png"
-dest_files=["res://.godot/imported/4.png-e798e4d8ba0a1ffe88a4b85463d0181c.s3tc.ctex"]
+dest_files=["res://.godot/imported/4.png-e798e4d8ba0a1ffe88a4b85463d0181c.s3tc.ctex", "res://.godot/imported/4.png-e798e4d8ba0a1ffe88a4b85463d0181c.etc2.ctex"]
 
 [params]
 

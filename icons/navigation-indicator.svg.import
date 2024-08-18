@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dieqy80h0hivh"
 path.s3tc="res://.godot/imported/navigation-indicator.svg-a49c6d20758a2b8a7be1672047aa3f2e.s3tc.ctex"
+path.etc2="res://.godot/imported/navigation-indicator.svg-a49c6d20758a2b8a7be1672047aa3f2e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://icons/navigation-indicator.svg"
-dest_files=["res://.godot/imported/navigation-indicator.svg-a49c6d20758a2b8a7be1672047aa3f2e.s3tc.ctex"]
+dest_files=["res://.godot/imported/navigation-indicator.svg-a49c6d20758a2b8a7be1672047aa3f2e.s3tc.ctex", "res://.godot/imported/navigation-indicator.svg-a49c6d20758a2b8a7be1672047aa3f2e.etc2.ctex"]
 
 [params]
 

@@ -87,7 +87,7 @@ func navigate() -> void:
 			nav_indicator.queue_free()
 		
 		if result.collider.is_in_group("enemies"):
-			emit_signal("enemy_targeted", result.collider)
+			enemy_targeted.emit(result.collider)
 		else:
 			%NavigationAgent3D.set_target_position(result.position)
 			nav_indicator = load("res://navigation_indicator.tscn").instantiate()
