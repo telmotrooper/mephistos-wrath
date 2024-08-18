@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://l2wwaixdanke"
 path.s3tc="res://.godot/imported/Ganfaul_diffuse.png-06744415366f0a9e1243b1f78f326f5d.s3tc.ctex"
+path.etc2="res://.godot/imported/Ganfaul_diffuse.png-06744415366f0a9e1243b1f78f326f5d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://animations/textures/Ganfaul_diffuse.png"
-dest_files=["res://.godot/imported/Ganfaul_diffuse.png-06744415366f0a9e1243b1f78f326f5d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ganfaul_diffuse.png-06744415366f0a9e1243b1f78f326f5d.s3tc.ctex", "res://.godot/imported/Ganfaul_diffuse.png-06744415366f0a9e1243b1f78f326f5d.etc2.ctex"]
 
 [params]
 

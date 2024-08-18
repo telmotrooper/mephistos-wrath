@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsgicd8vi0c0s"
 path.s3tc="res://.godot/imported/Knight_diffuse_blue.png-2a13fe2a236d9bc349b78f9dfddcd3fd.s3tc.ctex"
+path.etc2="res://.godot/imported/Knight_diffuse_blue.png-2a13fe2a236d9bc349b78f9dfddcd3fd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://animations/rogue/textures/Knight_diffuse_blue.png"
-dest_files=["res://.godot/imported/Knight_diffuse_blue.png-2a13fe2a236d9bc349b78f9dfddcd3fd.s3tc.ctex"]
+dest_files=["res://.godot/imported/Knight_diffuse_blue.png-2a13fe2a236d9bc349b78f9dfddcd3fd.s3tc.ctex", "res://.godot/imported/Knight_diffuse_blue.png-2a13fe2a236d9bc349b78f9dfddcd3fd.etc2.ctex"]
 
 [params]
 
