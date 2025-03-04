@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cw3gqifo6166y"]
 
-[ext_resource type="Script" path="res://ui/title_screen.gd" id="1_lvgvh"]
+[ext_resource type="Script" uid="uid://c730yjadnrd11" path="res://ui/title_screen.gd" id="1_lvgvh"]
 [ext_resource type="PackedScene" uid="uid://dd25m6it6auq0" path="res://maps/initial_map.tscn" id="2_aqvx7"]
 [ext_resource type="Texture2D" uid="uid://dy5afc3xvmxb5" path="res://assets/kenney/prototype_textures/Green/texture_08.png" id="3_iuucs"]
 [ext_resource type="Environment" uid="uid://esmdy4xyqje1" path="res://environments/swamp_initial_map.tres" id="3_xklht"]

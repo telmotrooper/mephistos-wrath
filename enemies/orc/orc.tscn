@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpxcby3h4ujb8"]
 
 [ext_resource type="PackedScene" uid="uid://48lrwigg37y1" path="res://enemies/orc/warrok.blend" id="1_us5ac"]
-[ext_resource type="Script" path="res://enemies/orc/orc.gd" id="1_uywr1"]
+[ext_resource type="Script" uid="uid://dpae6t5cneexy" path="res://enemies/orc/orc.gd" id="1_uywr1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eat60"]
 radius = 0.4

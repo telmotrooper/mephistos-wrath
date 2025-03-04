@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://dqttuytu4q3wa"]
 
-[ext_resource type="Script" path="res://party_character.gd" id="1_adfag"]
+[ext_resource type="Script" uid="uid://bkwamc5wsniwy" path="res://party_character.gd" id="1_adfag"]
 [ext_resource type="PackedScene" uid="uid://cepon7tc5ad8h" path="res://animations/warrior.blend" id="2_8ryni"]
 [ext_resource type="Texture2D" uid="uid://bsrvwdx7p2w7b" path="res://icons/selected-character.svg" id="3_7fr1h"]
-[ext_resource type="Script" path="res://camera_pivot.gd" id="4_pg6on"]
+[ext_resource type="Script" uid="uid://cy6b6xtlwr2h" path="res://camera_pivot.gd" id="4_pg6on"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xl1hp"]
 radius = 0.25

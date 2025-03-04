@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://fjov23yxdht3"]
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://fjov23yxdht3"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_1cfat"]
+[ext_resource type="Script" uid="uid://c3sjfrcvc642j" path="res://characters/character.gd" id="1_1cfat"]
+[ext_resource type="Script" uid="uid://b5wabyy0e1l68" path="res://abilities/ability.gd" id="1_6syld"]
 [ext_resource type="Resource" uid="uid://egfdor26t4kp" path="res://abilities/generic_6.tres" id="1_p5xpy"]
 [ext_resource type="Texture2D" uid="uid://dggl4opswi8w" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/19.png" id="2_c1hch"]
 [ext_resource type="Resource" uid="uid://xymf02hqi705" path="res://classes/warrior.tres" id="2_huk5p"]
@@ -16,4 +17,4 @@ hp = 80
 max_mp = 220
 mp = 180
 character_class = ExtResource("2_huk5p")
-ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_p5xpy")])
+ability_bar = Array[ExtResource("1_6syld")]([ExtResource("1_p5xpy")])

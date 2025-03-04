@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://b7j3g28hhgggb"]
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://b7j3g28hhgggb"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_2papk"]
+[ext_resource type="Script" uid="uid://c3sjfrcvc642j" path="res://characters/character.gd" id="1_2papk"]
+[ext_resource type="Script" uid="uid://b5wabyy0e1l68" path="res://abilities/ability.gd" id="1_r20tk"]
 [ext_resource type="Resource" uid="uid://drtbspyy5yh13" path="res://abilities/generic_5.tres" id="1_rs40i"]
 [ext_resource type="Texture2D" uid="uid://bvhlj1jj0xcku" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/28.png" id="2_2pc51"]
 [ext_resource type="Resource" uid="uid://b2ueitdqi0f2e" path="res://classes/rogue.tres" id="2_d4wwj"]
@@ -16,4 +17,4 @@ hp = 10
 max_mp = 60
 mp = 0
 character_class = ExtResource("2_d4wwj")
-ability_bar = Array[Resource("res://abilities/ability.gd")]([ExtResource("1_rs40i")])
+ability_bar = Array[ExtResource("1_r20tk")]([ExtResource("1_rs40i")])

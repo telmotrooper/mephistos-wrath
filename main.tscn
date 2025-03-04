@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyy5m4v0jn744"]
 
-[ext_resource type="Script" path="res://fade_transition.gd" id="1_dwo0s"]
-[ext_resource type="Script" path="res://main.gd" id="1_ic1yr"]
+[ext_resource type="Script" uid="uid://pl2fk6b81pmg" path="res://fade_transition.gd" id="1_dwo0s"]
+[ext_resource type="Script" uid="uid://wjqoipvhdaq2" path="res://main.gd" id="1_ic1yr"]
 [ext_resource type="PackedScene" uid="uid://cw3gqifo6166y" path="res://ui/title_screen.tscn" id="2_r6a06"]
 [ext_resource type="AudioStream" uid="uid://bedmq1t2xsq0v" path="res://assets/music/audio_hero_The-Rescue_SIPML_J-0414.mp3" id="4_o36ls"]
 

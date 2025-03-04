@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhundnaj0qca3"]
 
 [ext_resource type="Texture2D" uid="uid://q4tf653nfhyg" path="res://icons/godot.svg" id="1_3stpe"]
-[ext_resource type="Script" path="res://ability_button.gd" id="2_f5roc"]
+[ext_resource type="Script" uid="uid://c3pyk12ongllk" path="res://ability_button.gd" id="2_f5roc"]
 [ext_resource type="Resource" uid="uid://d1mk6gisn3b5t" path="res://abilities/empty.tres" id="3_eobk6"]
 
 [sub_resource type="Theme" id="Theme_cpg4t"]
