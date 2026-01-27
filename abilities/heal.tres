@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://b6e6v8ccfjr2v"]
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://b6e6v8ccfjr2v"]
 
 [ext_resource type="Script" uid="uid://b5wabyy0e1l68" path="res://abilities/ability.gd" id="1_bhuk7"]
 [ext_resource type="Texture2D" uid="uid://dvelhysteqohl" path="res://icons/craftpix/free_rpg_warlock_skill_icons/13.png" id="1_jiupr"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpxcby3h4ujb8"]
+[gd_scene format=3 uid="uid://dpxcby3h4ujb8"]
 
 [ext_resource type="PackedScene" uid="uid://48lrwigg37y1" path="res://enemies/orc/warrok.blend" id="1_us5ac"]
 [ext_resource type="Script" uid="uid://dpae6t5cneexy" path="res://enemies/orc/orc.gd" id="1_uywr1"]
@@ -7,16 +7,16 @@
 radius = 0.4
 height = 2.2
 
-[node name="Orc" type="CharacterBody3D" groups=["enemies", "highlightable"]]
+[node name="Orc" type="CharacterBody3D" unique_id=1457120220 groups=["enemies", "highlightable"]]
 script = ExtResource("1_uywr1")
 
-[node name="warrok" parent="." instance=ExtResource("1_us5ac")]
+[node name="warrok" parent="." unique_id=252440029 instance=ExtResource("1_us5ac")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1654205583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 shape = SubResource("CapsuleShape3D_eat60")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=491858497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 visible = false
 pixel_size = 0.0006

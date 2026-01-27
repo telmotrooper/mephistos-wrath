@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://bjedtxuaw7e3r"]
+[gd_resource type="Resource" script_class="Class" format=3 uid="uid://bjedtxuaw7e3r"]
 
 [ext_resource type="Script" uid="uid://nspy62o7jyfo" path="res://classes/class.gd" id="1_34e1k"]
 
 [resource]
 script = ExtResource("1_34e1k")
 name = &"Mage"
-description = &"Class description."

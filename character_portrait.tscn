@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bai5fwngw35v5"]
+[gd_scene format=3 uid="uid://bai5fwngw35v5"]
 
 [ext_resource type="Script" uid="uid://cfgrcem2ywq4l" path="res://character_portrait.gd" id="1_d2t5c"]
 [ext_resource type="Texture2D" uid="uid://bb62v05ucunlc" path="res://icons/player-circle-hp.svg" id="1_jomcv"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dggl4opswi8w" path="res://icons/craftpix/free_rpg_fantasy_avatar_icons/19.png" id="7_k2vds"]
 [ext_resource type="Texture2D" uid="uid://ql5io5ml2lgl" path="res://icons/player-circle-border.svg" id="7_rmgwk"]
 
-[node name="CharacterPortrait" type="Control" groups=["character_portraits"]]
+[node name="CharacterPortrait" type="Control" unique_id=873526824 groups=["character_portraits"]]
 custom_minimum_size = Vector2(117, 117)
 layout_mode = 3
 anchors_preset = 0
@@ -17,35 +17,35 @@ offset_bottom = 40.0
 script = ExtResource("1_d2t5c")
 character = ExtResource("2_pc7yn")
 
-[node name="Border" type="TextureRect" parent="."]
+[node name="Border" type="TextureRect" parent="." unique_id=1009458055]
 layout_mode = 0
 offset_right = 117.0
 offset_bottom = 117.0
 texture = ExtResource("7_rmgwk")
 
-[node name="HP" type="TextureProgressBar" parent="."]
+[node name="HP" type="TextureProgressBar" parent="." unique_id=491238606]
 layout_mode = 0
 offset_right = 117.0
 offset_bottom = 117.0
 value = 50.0
 fill_mode = 4
+radial_initial_angle = 180.0
 texture_under = ExtResource("1_jomcv")
 texture_progress = ExtResource("1_jomcv")
 tint_under = Color(0, 0, 0, 1)
-radial_initial_angle = 180.0
 
-[node name="MP" type="TextureProgressBar" parent="."]
+[node name="MP" type="TextureProgressBar" parent="." unique_id=929736008]
 layout_mode = 0
 offset_right = 117.0
 offset_bottom = 117.0
 value = 50.0
 fill_mode = 5
+radial_initial_angle = 180.0
 texture_under = ExtResource("2_jr61c")
 texture_progress = ExtResource("2_jr61c")
 tint_under = Color(0, 0, 0, 1)
-radial_initial_angle = 180.0
 
-[node name="Mask" type="TextureRect" parent="."]
+[node name="Mask" type="TextureRect" parent="." unique_id=1308869471]
 show_behind_parent = true
 clip_children = 2
 layout_mode = 1
@@ -62,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4xg4o")
 
-[node name="Portrait" type="TextureRect" parent="Mask"]
+[node name="Portrait" type="TextureRect" parent="Mask" unique_id=1032215337]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
