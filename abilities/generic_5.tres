@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://drtbspyy5yh13"]
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://drtbspyy5yh13"]
 
 [ext_resource type="Texture2D" uid="uid://b3v15ruutqv" path="res://icons/craftpix/free_50_rpg_aeromancer_skill_icons/25.png" id="1_nra27"]
 [ext_resource type="Script" uid="uid://b5wabyy0e1l68" path="res://abilities/ability.gd" id="2_kgcl1"]
@@ -8,4 +8,3 @@ script = ExtResource("2_kgcl1")
 name = &"Generic Ability 5"
 description = &"Doesn\'t do anything."
 image = ExtResource("1_nra27")
-cooldown_time = 1.0

@@ -1,14 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b071k8pseqmya"]
+[gd_scene format=3 uid="uid://b071k8pseqmya"]
 
 [ext_resource type="Texture2D" uid="uid://dieqy80h0hivh" path="res://icons/navigation-indicator.svg" id="1_0b30v"]
 
-[node name="NavigationIndicator" type="Node3D"]
+[node name="NavigationIndicator" type="Node3D" unique_id=1787109956]
 top_level = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=454800358]
 visible = false
 size = Vector3(2, 0.05, 2)
 
-[node name="Decal" type="Decal" parent="."]
+[node name="Decal" type="Decal" parent="." unique_id=832910504]
 size = Vector3(0.5, 0.05, 0.5)
 texture_albedo = ExtResource("1_0b30v")

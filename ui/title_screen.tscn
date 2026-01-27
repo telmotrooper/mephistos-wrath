@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw3gqifo6166y"]
+[gd_scene format=3 uid="uid://cw3gqifo6166y"]
 
 [ext_resource type="Script" uid="uid://c730yjadnrd11" path="res://ui/title_screen.gd" id="1_lvgvh"]
 [ext_resource type="PackedScene" uid="uid://dd25m6it6auq0" path="res://maps/initial_map.tscn" id="2_aqvx7"]
@@ -11,11 +11,11 @@ albedo_texture = ExtResource("3_iuucs")
 uv1_scale = Vector3(3, 3, 3)
 uv1_offset = Vector3(0, 0.18, 0)
 
-[node name="TitleScreen" type="Node"]
+[node name="TitleScreen" type="Node" unique_id=770937887]
 script = ExtResource("1_lvgvh")
 new_game_scene = ExtResource("2_aqvx7")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1131781577]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1747308166]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=517488463]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -43,17 +43,17 @@ size_flags_vertical = 8
 size_flags_stretch_ratio = 5.1
 theme_override_constants/separation = 10
 
-[node name="NewGameButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=698049238]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "NEW GAME"
 
-[node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=68577156]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer" unique_id=1018534253]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -62,23 +62,23 @@ text = "MEPHISTO'S WRATH"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=301518872]
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=521741909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.4, -1.5)
 current = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=1946181441]
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_k6n4j")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=1361978507]
 environment = ExtResource("3_xklht")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/WorldEnvironment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/WorldEnvironment" unique_id=584547074]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 15, 0)
 
-[node name="mage" parent="Node3D" instance=ExtResource("4_sgu1e")]
+[node name="mage" parent="Node3D" unique_id=2107037080 instance=ExtResource("4_sgu1e")]
 transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0.5, -3.2)
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

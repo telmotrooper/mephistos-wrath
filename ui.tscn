@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dljd72ox6wihm"]
+[gd_scene format=3 uid="uid://dljd72ox6wihm"]
 
 [ext_resource type="Script" uid="uid://yeo8vpsrumoe" path="res://ui.gd" id="1_35h45"]
 [ext_resource type="PackedScene" uid="uid://dhundnaj0qca3" path="res://ability_button.tscn" id="1_keu18"]
@@ -32,7 +32,7 @@ colors = PackedColorArray(0.282353, 0.282353, 0.282353, 0.392157, 0.282353, 0.28
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_8bahr"]
 gradient = SubResource("Gradient_eikfx")
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=186434839]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +44,7 @@ size_flags_vertical = 4
 mouse_filter = 1
 script = ExtResource("1_35h45")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1701736075]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,55 +56,55 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Abilities" type="HBoxContainer" parent="MarginContainer"]
+[node name="Abilities" type="HBoxContainer" parent="MarginContainer" unique_id=902450950]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="AbilityButton" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton" parent="MarginContainer/Abilities" unique_id=122950597 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton2" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton2" parent="MarginContainer/Abilities" unique_id=320809384 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton3" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton3" parent="MarginContainer/Abilities" unique_id=1562488014 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton4" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton4" parent="MarginContainer/Abilities" unique_id=61766458 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton5" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton5" parent="MarginContainer/Abilities" unique_id=243326438 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton6" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton6" parent="MarginContainer/Abilities" unique_id=614569416 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton7" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton7" parent="MarginContainer/Abilities" unique_id=1298672599 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton8" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton8" parent="MarginContainer/Abilities" unique_id=313543061 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton9" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton9" parent="MarginContainer/Abilities" unique_id=696264734 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton10" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton10" parent="MarginContainer/Abilities" unique_id=738739672 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton11" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton11" parent="MarginContainer/Abilities" unique_id=518107546 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton12" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton12" parent="MarginContainer/Abilities" unique_id=781563576 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton13" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton13" parent="MarginContainer/Abilities" unique_id=2102154911 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="AbilityButton14" parent="MarginContainer/Abilities" instance=ExtResource("1_keu18")]
+[node name="AbilityButton14" parent="MarginContainer/Abilities" unique_id=597850107 instance=ExtResource("1_keu18")]
 layout_mode = 2
 
-[node name="LockButton" type="Button" parent="MarginContainer/Abilities"]
+[node name="LockButton" type="Button" parent="MarginContainer/Abilities" unique_id=1613637684]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -113,19 +113,19 @@ focus_mode = 0
 icon = ExtResource("4_gl0di")
 script = ExtResource("4_jpk3e")
 
-[node name="Portraits" type="VBoxContainer" parent="MarginContainer"]
+[node name="Portraits" type="VBoxContainer" parent="MarginContainer" unique_id=858113403]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="CharacterPortrait" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
+[node name="CharacterPortrait" parent="MarginContainer/Portraits" unique_id=117543460 instance=ExtResource("6_quqll")]
 layout_mode = 2
 tooltip_text = "George Erickson
 HP: 100/120
 MP: 100/100"
 hotkey = &"f1"
 
-[node name="CharacterPortrait2" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
+[node name="CharacterPortrait2" parent="MarginContainer/Portraits" unique_id=466206564 instance=ExtResource("6_quqll")]
 layout_mode = 2
 tooltip_text = "Marty Badger
 HP: 100/100
@@ -133,7 +133,7 @@ MP: 100/100"
 character = ExtResource("8_g7gv6")
 hotkey = &"f2"
 
-[node name="CharacterPortrait3" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
+[node name="CharacterPortrait3" parent="MarginContainer/Portraits" unique_id=1164566127 instance=ExtResource("6_quqll")]
 layout_mode = 2
 tooltip_text = "Michael Tenorio
 HP: 100/100
@@ -141,7 +141,7 @@ MP: 100/100"
 character = ExtResource("9_ggjba")
 hotkey = &"f3"
 
-[node name="CharacterPortrait4" parent="MarginContainer/Portraits" instance=ExtResource("6_quqll")]
+[node name="CharacterPortrait4" parent="MarginContainer/Portraits" unique_id=1635683457 instance=ExtResource("6_quqll")]
 layout_mode = 2
 tooltip_text = "Timothy Curry
 HP: 100/100
@@ -149,11 +149,11 @@ MP: 100/100"
 character = ExtResource("10_hb6mf")
 hotkey = &"f4"
 
-[node name="Control" type="Control" parent="MarginContainer/Portraits"]
+[node name="Control" type="Control" parent="MarginContainer/Portraits" unique_id=1980967407]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Portraits/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Portraits/Control" unique_id=1975889379]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -167,7 +167,7 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SelectAllButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+[node name="SelectAllButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer" unique_id=1764470796]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
@@ -175,7 +175,7 @@ focus_mode = 0
 icon = ExtResource("9_xfqkb")
 icon_alignment = 1
 
-[node name="StopButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer"]
+[node name="StopButton" type="Button" parent="MarginContainer/Portraits/Control/HBoxContainer" unique_id=1179881639]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
@@ -183,56 +183,56 @@ focus_mode = 0
 icon = ExtResource("10_dn88d")
 icon_alignment = 1
 
-[node name="TopMenu" type="HBoxContainer" parent="MarginContainer"]
+[node name="TopMenu" type="HBoxContainer" parent="MarginContainer" unique_id=887742350]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="CharacterButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="CharacterButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=957719964]
 layout_mode = 2
 tooltip_text = "Character (C)"
 focus_mode = 0
 texture_normal = ExtResource("16_m0qrx")
 
-[node name="AbilitiesButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="AbilitiesButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=317955181]
 layout_mode = 2
 tooltip_text = "Abilities (P)"
 focus_mode = 0
 texture_normal = ExtResource("10_oefr8")
 
-[node name="InventoryButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=1866887575]
 layout_mode = 2
 tooltip_text = "Inventory (I)"
 focus_mode = 0
 texture_normal = ExtResource("10_sw3dl")
 
-[node name="QuestLogButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="QuestLogButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=1991243878]
 layout_mode = 2
 tooltip_text = "Quest Log (L)"
 focus_mode = 0
 texture_normal = ExtResource("11_ptj3u")
 
-[node name="MapButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="MapButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=1421605604]
 layout_mode = 2
 tooltip_text = "Map (M)"
 focus_mode = 0
 texture_normal = ExtResource("8_erx31")
 
-[node name="SettingsButton" type="TextureButton" parent="MarginContainer/TopMenu"]
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/TopMenu" unique_id=211643509]
 layout_mode = 2
 tooltip_text = "Settings (Esc)"
 focus_mode = 0
 texture_normal = ExtResource("8_m55xj")
 
-[node name="HiddenAbilities" type="Control" parent="."]
+[node name="HiddenAbilities" type="Control" parent="." unique_id=2090524057]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 0
 
-[node name="Windows" type="Node" parent="."]
+[node name="Windows" type="Node" parent="." unique_id=655146472]
 
-[node name="CharacterWindow" type="Window" parent="Windows"]
+[node name="CharacterWindow" type="Window" parent="Windows" unique_id=869076792]
 unique_name_in_owner = true
 title = "Character"
 initial_position = 2
@@ -240,7 +240,7 @@ size = Vector2i(400, 400)
 visible = false
 script = ExtResource("15_ysrca")
 
-[node name="AbilitiesWindow" type="Window" parent="Windows"]
+[node name="AbilitiesWindow" type="Window" parent="Windows" unique_id=1754962795]
 unique_name_in_owner = true
 title = "Abilities"
 initial_position = 2
@@ -248,7 +248,7 @@ size = Vector2i(400, 400)
 visible = false
 script = ExtResource("14_b8oo3")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/AbilitiesWindow"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/AbilitiesWindow" unique_id=1789521024]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 10
@@ -256,60 +256,60 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="Windows/AbilitiesWindow/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Windows/AbilitiesWindow/MarginContainer" unique_id=225246603]
 layout_mode = 2
 columns = 4
 
-[node name="AbilityButton" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=141493352 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("15_vd7k8")
 
-[node name="AbilityButton2" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton2" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=2033684311 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("16_2s2ko")
 
-[node name="AbilityButton3" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton3" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=1415014768 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("17_1ejhn")
 
-[node name="AbilityButton4" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton4" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=471535770 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("18_67wdy")
 
-[node name="AbilityButton5" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton5" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=1726769673 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("18_dbc2g")
 
-[node name="AbilityButton6" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton6" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=2133042659 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("19_ay7vc")
 
-[node name="AbilityButton7" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" instance=ExtResource("1_keu18")]
+[node name="AbilityButton7" parent="Windows/AbilitiesWindow/MarginContainer/GridContainer" unique_id=1468552275 instance=ExtResource("1_keu18")]
 layout_mode = 2
 ability = ExtResource("20_jukx0")
 
-[node name="InventoryWindow" type="Window" parent="Windows"]
+[node name="InventoryWindow" type="Window" parent="Windows" unique_id=387882402]
 unique_name_in_owner = true
 title = "Inventory"
 initial_position = 2
 size = Vector2i(400, 400)
 visible = false
 
-[node name="QuestLogWindow" type="Window" parent="Windows"]
+[node name="QuestLogWindow" type="Window" parent="Windows" unique_id=1037913674]
 unique_name_in_owner = true
 title = "Quest Log"
 initial_position = 2
 size = Vector2i(400, 400)
 visible = false
 
-[node name="MapWindow" type="Window" parent="Windows"]
+[node name="MapWindow" type="Window" parent="Windows" unique_id=1276047165]
 unique_name_in_owner = true
 title = "Map"
 initial_position = 2
 size = Vector2i(400, 400)
 visible = false
 
-[node name="PausedDialog" type="TextureRect" parent="."]
+[node name="PausedDialog" type="TextureRect" parent="." unique_id=13138280]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -323,7 +323,7 @@ offset_bottom = 140.0
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_8bahr")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PausedDialog"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PausedDialog" unique_id=2122387600]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

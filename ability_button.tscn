@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhundnaj0qca3"]
+[gd_scene format=3 uid="uid://dhundnaj0qca3"]
 
 [ext_resource type="Texture2D" uid="uid://q4tf653nfhyg" path="res://icons/godot.svg" id="1_3stpe"]
 [ext_resource type="Script" uid="uid://c3pyk12ongllk" path="res://ability_button.gd" id="2_f5roc"]
@@ -7,7 +7,7 @@
 [sub_resource type="Theme" id="Theme_cpg4t"]
 Label/font_sizes/font_size = 16
 
-[node name="AbilityButton" type="Control"]
+[node name="AbilityButton" type="Control" unique_id=937705518]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -16,7 +16,7 @@ offset_bottom = 40.0
 script = ExtResource("2_f5roc")
 ability = ExtResource("3_eobk6")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." groups=["ability_buttons"]]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=203639971 groups=["ability_buttons"]]
 layout_mode = 0
 value = 100.0
 fill_mode = 4
@@ -24,7 +24,7 @@ texture_under = ExtResource("1_3stpe")
 texture_progress = ExtResource("1_3stpe")
 tint_under = Color(0.568627, 0.568627, 0.568627, 1)
 
-[node name="Label" type="Label" parent="TextureProgressBar"]
+[node name="Label" type="Label" parent="TextureProgressBar" unique_id=977317687]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

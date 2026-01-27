@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyy5m4v0jn744"]
+[gd_scene format=3 uid="uid://dyy5m4v0jn744"]
 
 [ext_resource type="Script" uid="uid://pl2fk6b81pmg" path="res://fade_transition.gd" id="1_dwo0s"]
 [ext_resource type="Script" uid="uid://wjqoipvhdaq2" path="res://main.gd" id="1_ic1yr"]
 [ext_resource type="PackedScene" uid="uid://cw3gqifo6166y" path="res://ui/title_screen.tscn" id="2_r6a06"]
 [ext_resource type="AudioStream" uid="uid://bedmq1t2xsq0v" path="res://assets/music/audio_hero_The-Rescue_SIPML_J-0414.mp3" id="4_o36ls"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1450276351]
 script = ExtResource("1_ic1yr")
 initial_scene = ExtResource("2_r6a06")
 
-[node name="World" type="Node3D" parent="."]
+[node name="World" type="Node3D" parent="." unique_id=1321075875]
 
-[node name="FadeTransition" type="ColorRect" parent="."]
+[node name="FadeTransition" type="ColorRect" parent="." unique_id=1496843567]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,6 +20,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_dwo0s")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1789137523]
 stream = ExtResource("4_o36ls")
 autoplay = true
